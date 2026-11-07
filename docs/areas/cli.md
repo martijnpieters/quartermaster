@@ -8,7 +8,7 @@
 
 `qm` is shared by the user, Claude and the hooks. `./quartermaster` is a launcher only: it
 requires `lib/quartermaster` through its realpath, so the `~/bin/qm` and `~/bin/quartermaster`
-symlinks keep working, and runs `CLI#run`. Help text comes from `CliFormat::USAGE_SECTIONS`;
+symlinks keep working, and runs `CLI#run` (or, with `QM_USE_RUST=1`, `exec`s the Rust binary → rust-port.md). Help text comes from `CliFormat::USAGE_SECTIONS`;
 `qm help` is authoritative. Commands, one line each (flags in `qm help`):
 
 **Viewer and GUI**

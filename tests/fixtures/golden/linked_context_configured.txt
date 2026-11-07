@@ -1,0 +1,31 @@
+[qm] This Claude Code session (c1) is linked to work item 'configured' — the session id has been attached to it automatically.
+
+Work item (ROOT/work-items/configured.md):
+  title: Configured
+  state: in_progress
+  project: demo
+  created: DATE
+  sessions: 1 (ids in the file)
+
+## Description
+
+_TODO_
+
+## Notes
+(none yet)
+
+Work item protocol:
+- Append a succinct progress note at meaningful milestones: qm note configured --kind <open|decision|history> "..."
+  - open — still unresolved and user-facing: a decision the user owes, a blocked dependency, a known gap, anything you'd describe as "flagged to the user". Always re-injected regardless of age, so keep it short and say what would unblock it.
+  - decision — a choice made, or a finding about how the system actually is: something a later session would get wrong without knowing it.
+  - history — how it got done: commits, rebases, folds, message fixups, push status, specs green. Kept in the file, never re-injected.
+  One kind per note: if a milestone has both a decision and its mechanics, write two notes. If a note contains anything still open, it is 'open' whatever else it says. Omitting --kind means 'decision'. Don't repeat the date in the text — qm stamps it.
+- When an open item is handled, retag it so it stops being injected: qm retag configured <position> decision (positions are the #n above). Same command backfills a kind you got wrong.
+- Keep the Description as the item's current truth: when a note records a decision or constraint that still governs the work, fold it into the description (qm describe configured "..."). Notes fall out of the injection window; the description doesn't.
+- Update the state when it changes: qm state configured (in_progress | fridge | resolved)
+- A 'status board' above means the item already has one: reuse that URL instead of publishing a new board (record one with qm board configured URL).
+- Refine a stale title when asked (or when it's clearly outdated): qm retitle configured "..."
+- The session sits on the item it is working on right now. The moment its work moves to another item (a different issue, a follow-up, refinement prep), re-link it then and there; likewise when this link is a wrong branch-based guess, telling the user:
+  continues another item → qm attach <other-slug> --session c1; substantial new work → qm new "Title" --project "..." --session c1 (both move the session off this item); trivial or throwaway → qm detach configured --session c1 and don't mention tracking again.
+- Dev server: qm work-on configured (devsrv tunnel + Code); mode: qm pf-mode configured MODE
+- PR may merge only after an earlier PR/commit is deployed: qm pr-requires <pr-or-sha> [--note TEXT]

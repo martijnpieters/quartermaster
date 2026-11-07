@@ -1,0 +1,642 @@
+=== "Plain title" / project "demo" → exit 0
+---
+  v: 1
+  title: Plain title
+  state: in_progress
+  project: demo
+  created: 'DATE'
+  branches:
+  - Plain title
+=== "Fix: colon" / project "No project" → exit 0
+---
+  v: 1
+  title: 'Fix: colon'
+  state: in_progress
+  project: No project
+  created: 'DATE'
+  branches:
+  - 'Fix: colon'
+=== "[WIP] bracket" / project "/srv/x" → exit 0
+---
+  v: 1
+  title: "[WIP] bracket"
+  state: in_progress
+  project: "/srv/x"
+  created: 'DATE'
+  branches:
+  - "[WIP] bracket"
+=== "#123 hash" / project "a: b" → exit 0
+---
+  v: 1
+  title: "#123 hash"
+  state: in_progress
+  project: 'a: b'
+  created: 'DATE'
+  branches:
+  - "#123 hash"
+=== "dash - inside" / project "09" → exit 0
+---
+  v: 1
+  title: dash - inside
+  state: in_progress
+  project: '09'
+  created: 'DATE'
+  branches:
+  - dash - inside
+=== "yes please" / project "yes" → exit 0
+---
+  v: 1
+  title: yes please
+  state: in_progress
+  project: 'yes'
+  created: 'DATE'
+  branches:
+  - yes please
+=== "No" / project "[bracketed]" → exit 0
+---
+  v: 1
+  title: 'No'
+  state: in_progress
+  project: "[bracketed]"
+  created: 'DATE'
+  branches:
+  - 'No'
+=== "y" / project "café" → exit 0
+---
+  v: 1
+  title: "y"
+  state: in_progress
+  project: café
+  created: 'DATE'
+  branches:
+  - "y"
+=== "Z" / project "#tagged" → exit 0
+---
+  v: 1
+  title: Z
+  state: in_progress
+  project: "#tagged"
+  created: 'DATE'
+  branches:
+  - Z
+=== "123" / project "" → exit 0
+---
+  v: 1
+  title: '123'
+  state: in_progress
+  project: ''
+  created: 'DATE'
+  branches:
+  - '123'
+=== "1.5" / project "demo" → exit 0
+---
+  v: 1
+  title: '1.5'
+  state: in_progress
+  project: demo
+  created: 'DATE'
+  branches:
+  - '1.5'
+=== "DATE" / project "No project" → exit 0
+---
+  v: 1
+  title: 'DATE'
+  state: in_progress
+  project: No project
+  created: 'DATE'
+  branches:
+  - 'DATE'
+=== "true" / project "/srv/x" → exit 0
+---
+  v: 1
+  title: 'true'
+  state: in_progress
+  project: "/srv/x"
+  created: 'DATE'
+  branches:
+  - 'true'
+=== "null" / project "a: b" → exit 0
+---
+  v: 1
+  title: 'null'
+  state: in_progress
+  project: 'a: b'
+  created: 'DATE'
+  branches:
+  - 'null'
+=== "~" / project "09" → exit 0
+---
+  v: 1
+  title: "~"
+  state: in_progress
+  project: '09'
+  created: 'DATE'
+  branches:
+  - "~"
+=== "'quoted'" / project "yes" → exit 0
+---
+  v: 1
+  title: "'quoted'"
+  state: in_progress
+  project: 'yes'
+  created: 'DATE'
+  branches:
+  - "'quoted'"
+=== "say \"hi\"" / project "[bracketed]" → exit 0
+---
+  v: 1
+  title: say "hi"
+  state: in_progress
+  project: "[bracketed]"
+  created: 'DATE'
+  branches:
+  - say "hi"
+=== "it's" / project "café" → exit 0
+---
+  v: 1
+  title: it's
+  state: in_progress
+  project: café
+  created: 'DATE'
+  branches:
+  - it's
+=== "trailing colon:" / project "#tagged" → exit 0
+---
+  v: 1
+  title: 'trailing colon:'
+  state: in_progress
+  project: "#tagged"
+  created: 'DATE'
+  branches:
+  - 'trailing colon:'
+=== "a #hash" / project "" → exit 0
+---
+  v: 1
+  title: 'a #hash'
+  state: in_progress
+  project: ''
+  created: 'DATE'
+  branches:
+  - 'a #hash'
+=== "a:b" / project "demo" → exit 0
+---
+  v: 1
+  title: a:b
+  state: in_progress
+  project: demo
+  created: 'DATE'
+  branches:
+  - a:b
+=== "café ünï" / project "No project" → exit 0
+---
+  v: 1
+  title: café ünï
+  state: in_progress
+  project: No project
+  created: 'DATE'
+  branches:
+  - café ünï
+=== "日本語 タイトル" / project "/srv/x" → exit 1
+---
+  v: 1
+  title: "~"
+  state: in_progress
+  project: '09'
+  created: 'DATE'
+  branches:
+  - "~"
+qm: work item '' already exists
+=== "tab\there" / project "a: b" → exit 0
+---
+  v: 1
+  title: "tab\there"
+  state: in_progress
+  project: 'a: b'
+  created: 'DATE'
+  branches:
+  - "tab\there"
+=== "line\nbreak" / project "09" → exit 0
+---
+  v: 1
+  title: |-
+    line
+    break
+  state: in_progress
+  project: '09'
+  created: 'DATE'
+  branches:
+  - |-
+    line
+    break
+=== "09" / project "yes" → exit 0
+---
+  v: 1
+  title: '09'
+  state: in_progress
+  project: 'yes'
+  created: 'DATE'
+  branches:
+  - '09'
+=== "0x1F" / project "[bracketed]" → exit 0
+---
+  v: 1
+  title: '0x1F'
+  state: in_progress
+  project: "[bracketed]"
+  created: 'DATE'
+  branches:
+  - '0x1F'
+=== "1_000" / project "café" → exit 0
+---
+  v: 1
+  title: '1_000'
+  state: in_progress
+  project: café
+  created: 'DATE'
+  branches:
+  - '1_000'
+=== ":sym" / project "#tagged" → exit 0
+---
+  v: 1
+  title: ":sym"
+  state: in_progress
+  project: "#tagged"
+  created: 'DATE'
+  branches:
+  - ":sym"
+=== "!bang" / project "" → exit 0
+---
+  v: 1
+  title: "!bang"
+  state: in_progress
+  project: ''
+  created: 'DATE'
+  branches:
+  - "!bang"
+=== "&amp" / project "demo" → exit 0
+---
+  v: 1
+  title: "&amp"
+  state: in_progress
+  project: demo
+  created: 'DATE'
+  branches:
+  - "&amp"
+=== "*star" / project "No project" → exit 0
+---
+  v: 1
+  title: "*star"
+  state: in_progress
+  project: No project
+  created: 'DATE'
+  branches:
+  - "*star"
+=== "@at" / project "/srv/x" → exit 0
+---
+  v: 1
+  title: "@at"
+  state: in_progress
+  project: "/srv/x"
+  created: 'DATE'
+  branches:
+  - "@at"
+=== "%pct" / project "a: b" → exit 0
+---
+  v: 1
+  title: "%pct"
+  state: in_progress
+  project: 'a: b'
+  created: 'DATE'
+  branches:
+  - "%pct"
+=== "`tick`" / project "09" → exit 0
+---
+  v: 1
+  title: "`tick`"
+  state: in_progress
+  project: '09'
+  created: 'DATE'
+  branches:
+  - "`tick`"
+=== "a: b: c" / project "yes" → exit 0
+---
+  v: 1
+  title: 'a: b: c'
+  state: in_progress
+  project: 'yes'
+  created: 'DATE'
+  branches:
+  - 'a: b: c'
+=== "{braces}" / project "[bracketed]" → exit 0
+---
+  v: 1
+  title: "{braces}"
+  state: in_progress
+  project: "[bracketed]"
+  created: 'DATE'
+  branches:
+  - "{braces}"
+=== "?question" / project "café" → exit 0
+---
+  v: 1
+  title: "?question"
+  state: in_progress
+  project: café
+  created: 'DATE'
+  branches:
+  - "?question"
+=== "-5" / project "#tagged" → exit 1
+---
+  v: 1
+  title: "~"
+  state: in_progress
+  project: '09'
+  created: 'DATE'
+  branches:
+  - "~"
+/home/user/quartermaster/lib/quartermaster/cli.rb:108:in `cmd_new': invalid option: -5 (OptionParser::InvalidOption)
+	from /home/user/quartermaster/lib/quartermaster/cli.rb:61:in `run'
+	from /home/user/quartermaster/quartermaster:8:in `<main>'
+/home/user/quartermaster/lib/quartermaster/cli.rb:108:in `cmd_new': invalid option: 5 (OptionParser::InvalidOption)
+	from /home/user/quartermaster/lib/quartermaster/cli.rb:61:in `run'
+	from /home/user/quartermaster/quartermaster:8:in `<main>'
+=== "+5" / project "" → exit 0
+---
+  v: 1
+  title: "+5"
+  state: in_progress
+  project: ''
+  created: 'DATE'
+  branches:
+  - "+5"
+=== ".5" / project "demo" → exit 1
+---
+  v: 1
+  title: "~"
+  state: in_progress
+  project: '09'
+  created: 'DATE'
+  branches:
+  - "~"
+qm: work item '5' already exists
+=== "1e3" / project "No project" → exit 0
+---
+  v: 1
+  title: 1e3
+  state: in_progress
+  project: No project
+  created: 'DATE'
+  branches:
+  - 1e3
+=== "12:30" / project "/srv/x" → exit 0
+---
+  v: 1
+  title: '12:30'
+  state: in_progress
+  project: "/srv/x"
+  created: 'DATE'
+  branches:
+  - '12:30'
+=== "1,000" / project "a: b" → exit 1
+---
+  v: 1
+  title: "~"
+  state: in_progress
+  project: '09'
+  created: 'DATE'
+  branches:
+  - "~"
+qm: work item '1-000' already exists
+=== "Truthy" / project "09" → exit 0
+---
+  v: 1
+  title: Truthy
+  state: in_progress
+  project: '09'
+  created: 'DATE'
+  branches:
+  - Truthy
+=== "OFF" / project "yes" → exit 0
+---
+  v: 1
+  title: 'OFF'
+  state: in_progress
+  project: 'yes'
+  created: 'DATE'
+  branches:
+  - 'OFF'
+=== "(parens) first" / project "[bracketed]" → exit 0
+---
+  v: 1
+  title: "(parens) first"
+  state: in_progress
+  project: "[bracketed]"
+  created: 'DATE'
+  branches:
+  - "(parens) first"
+=== "/leading slash" / project "café" → exit 0
+---
+  v: 1
+  title: "/leading slash"
+  state: in_progress
+  project: café
+  created: 'DATE'
+  branches:
+  - "/leading slash"
+=== "$dollar" / project "#tagged" → exit 0
+---
+  v: 1
+  title: "$dollar"
+  state: in_progress
+  project: "#tagged"
+  created: 'DATE'
+  branches:
+  - "$dollar"
+=== "emoji 🎉 party" / project "" → exit 0
+---
+  v: 1
+  title: "emoji \U0001F389 party"
+  state: in_progress
+  project: ''
+  created: 'DATE'
+  branches:
+  - "emoji \U0001F389 party"
+=== "ends with space " / project "demo" → exit 0
+---
+  v: 1
+  title: ends with space
+  state: in_progress
+  project: demo
+  created: 'DATE'
+  branches:
+  - 'ends with space '
+=== "back\\slash" / project "No project" → exit 0
+---
+  v: 1
+  title: back\slash
+  state: in_progress
+  project: No project
+  created: 'DATE'
+  branches:
+  - back\slash
+=== "12:30:45" / project "/srv/x" → exit 0
+---
+  v: 1
+  title: '12:30:45'
+  state: in_progress
+  project: "/srv/x"
+  created: 'DATE'
+  branches:
+  - '12:30:45'
+=== "DATE 10:11:12" / project "a: b" → exit 0
+---
+  v: 1
+  title: 'DATE 10:11:12'
+  state: in_progress
+  project: 'a: b'
+  created: 'DATE'
+  branches:
+  - 'DATE 10:11:12'
+=== "1 2 3" / project "09" → exit 0
+---
+  v: 1
+  title: 1 2 3
+  state: in_progress
+  project: '09'
+  created: 'DATE'
+  branches:
+  - 1 2 3
+=== "0o17" / project "yes" → exit 0
+---
+  v: 1
+  title: 0o17
+  state: in_progress
+  project: 'yes'
+  created: 'DATE'
+  branches:
+  - 0o17
+=== "0b101" / project "[bracketed]" → exit 0
+---
+  v: 1
+  title: '0b101'
+  state: in_progress
+  project: "[bracketed]"
+  created: 'DATE'
+  branches:
+  - '0b101'
+=== "-.inf" / project "café" → exit 1
+---
+  v: 1
+  title: "~"
+  state: in_progress
+  project: '09'
+  created: 'DATE'
+  branches:
+  - "~"
+/home/user/quartermaster/lib/quartermaster/cli.rb:108:in `cmd_new': invalid option: -.inf (OptionParser::InvalidOption)
+	from /home/user/quartermaster/lib/quartermaster/cli.rb:61:in `run'
+	from /home/user/quartermaster/quartermaster:8:in `<main>'
+/home/user/quartermaster/lib/quartermaster/cli.rb:108:in `cmd_new': invalid option: . (OptionParser::InvalidOption)
+	from /home/user/quartermaster/lib/quartermaster/cli.rb:61:in `run'
+	from /home/user/quartermaster/quartermaster:8:in `<main>'
+=== ".NaN" / project "#tagged" → exit 0
+---
+  v: 1
+  title: ".NaN"
+  state: in_progress
+  project: "#tagged"
+  created: 'DATE'
+  branches:
+  - ".NaN"
+=== "<<" / project "" → exit 1
+---
+  v: 1
+  title: "~"
+  state: in_progress
+  project: '09'
+  created: 'DATE'
+  branches:
+  - "~"
+qm: work item '' already exists
+=== "= equals" / project "demo" → exit 0
+---
+  v: 1
+  title: "= equals"
+  state: in_progress
+  project: demo
+  created: 'DATE'
+  branches:
+  - "= equals"
+=== "The quick brown fox jumps over the lazy dog while the five boxing wizards jump quickly past the sphinx of black quartz" / project "No project" → exit 0
+---
+  v: 1
+  title: The quick brown fox jumps over the lazy dog while the five boxing wizards jump
+    quickly past the sphinx of black quartz
+  state: in_progress
+  project: No project
+  created: 'DATE'
+  branches:
+  - The quick brown fox jumps over the lazy dog while the five boxing wizards jump quickly
+    past the sphinx of black quartz
+=== "Averyveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryverylongwordwithoutanyspaces" / project "/srv/x" → exit 0
+---
+  v: 1
+  title: Averyveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryverylongwordwithoutanyspaces
+  state: in_progress
+  project: "/srv/x"
+  created: 'DATE'
+  branches:
+  - Averyveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryverylongwordwithoutanyspaces
+=== "Exactly at the edge of the line width so that folding may or may not happen at this point right" / project "a: b" → exit 0
+---
+  v: 1
+  title: Exactly at the edge of the line width so that folding may or may not happen
+    at this point right
+  state: in_progress
+  project: 'a: b'
+  created: 'DATE'
+  branches:
+  - Exactly at the edge of the line width so that folding may or may not happen at this
+    point right
+=== "[WIP] The quick brown fox jumps over the lazy dog while the five boxing wizards jump quickly past the sphinx" / project "09" → exit 0
+---
+  v: 1
+  title: "[WIP] The quick brown fox jumps over the lazy dog while the five boxing wizards
+    jump quickly past the sphinx"
+  state: in_progress
+  project: '09'
+  created: 'DATE'
+  branches:
+  - "[WIP] The quick brown fox jumps over the lazy dog while the five boxing wizards
+    jump quickly past the sphinx"
+=== "'Quoted start' and the quick brown fox jumps over the lazy dog while the five boxing wizards jump quickly" / project "yes" → exit 0
+---
+  v: 1
+  title: "'Quoted start' and the quick brown fox jumps over the lazy dog while the five
+    boxing wizards jump quickly"
+  state: in_progress
+  project: 'yes'
+  created: 'DATE'
+  branches:
+  - "'Quoted start' and the quick brown fox jumps over the lazy dog while the five boxing
+    wizards jump quickly"
+=== "Tricky: the quick brown fox jumps over the lazy dog while the five boxing wizards jump quickly past it all" / project "[bracketed]" → exit 0
+---
+  v: 1
+  title: 'Tricky: the quick brown fox jumps over the lazy dog while the five boxing
+    wizards jump quickly past it all'
+  state: in_progress
+  project: "[bracketed]"
+  created: 'DATE'
+  branches:
+  - 'Tricky: the quick brown fox jumps over the lazy dog while the five boxing wizards
+    jump quickly past it all'
+=== "Words  with  double  spaces  inside  the  quick  brown  fox  jumps  over  the  lazy  dog  while  the  five  boxing" / project "café" → exit 0
+---
+  v: 1
+  title: Words  with  double  spaces  inside  the  quick  brown  fox  jumps  over  the  lazy  dog  while  the  five  boxing
+  state: in_progress
+  project: café
+  created: 'DATE'
+  branches:
+  - Words  with  double  spaces  inside  the  quick  brown  fox  jumps  over  the  lazy  dog  while  the  five  boxing

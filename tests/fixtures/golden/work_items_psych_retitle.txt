@@ -1,0 +1,483 @@
+=== "Plain title" / "demo"
+---
+v: 1
+title: Plain title
+state: in_progress
+project: demo
+created: 'DATE'
+=== "Fix: colon" / "No project"
+---
+v: 1
+title: 'Fix: colon'
+state: in_progress
+project: No project
+created: 'DATE'
+=== "[WIP] bracket" / "/srv/x"
+---
+v: 1
+title: "[WIP] bracket"
+state: in_progress
+project: "/srv/x"
+created: 'DATE'
+=== "#123 hash" / "a: b"
+---
+v: 1
+title: "#123 hash"
+state: in_progress
+project: 'a: b'
+created: 'DATE'
+=== "dash - inside" / "09"
+---
+v: 1
+title: dash - inside
+state: in_progress
+project: '09'
+created: 'DATE'
+=== "yes please" / "yes"
+---
+v: 1
+title: yes please
+state: in_progress
+project: 'yes'
+created: 'DATE'
+=== "No" / "[bracketed]"
+---
+v: 1
+title: 'No'
+state: in_progress
+project: "[bracketed]"
+created: 'DATE'
+=== "y" / "café"
+---
+v: 1
+title: "y"
+state: in_progress
+project: café
+created: 'DATE'
+=== "Z" / "#tagged"
+---
+v: 1
+title: Z
+state: in_progress
+project: "#tagged"
+created: 'DATE'
+=== "123" / ""
+---
+v: 1
+title: '123'
+state: in_progress
+project: ''
+created: 'DATE'
+=== "1.5" / "demo"
+---
+v: 1
+title: '1.5'
+state: in_progress
+project: demo
+created: 'DATE'
+=== "DATE" / "No project"
+---
+v: 1
+title: 'DATE'
+state: in_progress
+project: No project
+created: 'DATE'
+=== "true" / "/srv/x"
+---
+v: 1
+title: 'true'
+state: in_progress
+project: "/srv/x"
+created: 'DATE'
+=== "null" / "a: b"
+---
+v: 1
+title: 'null'
+state: in_progress
+project: 'a: b'
+created: 'DATE'
+=== "~" / "09"
+---
+v: 1
+title: "~"
+state: in_progress
+project: '09'
+created: 'DATE'
+=== "'quoted'" / "yes"
+---
+v: 1
+title: "'quoted'"
+state: in_progress
+project: 'yes'
+created: 'DATE'
+=== "say \"hi\"" / "[bracketed]"
+---
+v: 1
+title: say "hi"
+state: in_progress
+project: "[bracketed]"
+created: 'DATE'
+=== "it's" / "café"
+---
+v: 1
+title: it's
+state: in_progress
+project: café
+created: 'DATE'
+=== "trailing colon:" / "#tagged"
+---
+v: 1
+title: 'trailing colon:'
+state: in_progress
+project: "#tagged"
+created: 'DATE'
+=== "a #hash" / ""
+---
+v: 1
+title: 'a #hash'
+state: in_progress
+project: ''
+created: 'DATE'
+=== "a:b" / "demo"
+---
+v: 1
+title: a:b
+state: in_progress
+project: demo
+created: 'DATE'
+=== "café ünï" / "No project"
+---
+v: 1
+title: café ünï
+state: in_progress
+project: No project
+created: 'DATE'
+=== "日本語 タイトル" / "/srv/x"
+---
+v: 1
+title: 日本語 タイトル
+state: in_progress
+project: "/srv/x"
+created: 'DATE'
+=== "tab\there" / "a: b"
+---
+v: 1
+title: "tab\there"
+state: in_progress
+project: 'a: b'
+created: 'DATE'
+=== "line\nbreak" / "09"
+---
+v: 1
+title: |-
+  line
+  break
+state: in_progress
+project: '09'
+created: 'DATE'
+=== "09" / "yes"
+---
+v: 1
+title: '09'
+state: in_progress
+project: 'yes'
+created: 'DATE'
+=== "0x1F" / "[bracketed]"
+---
+v: 1
+title: '0x1F'
+state: in_progress
+project: "[bracketed]"
+created: 'DATE'
+=== "1_000" / "café"
+---
+v: 1
+title: '1_000'
+state: in_progress
+project: café
+created: 'DATE'
+=== ":sym" / "#tagged"
+---
+v: 1
+title: ":sym"
+state: in_progress
+project: "#tagged"
+created: 'DATE'
+=== "!bang" / ""
+---
+v: 1
+title: "!bang"
+state: in_progress
+project: ''
+created: 'DATE'
+=== "&amp" / "demo"
+---
+v: 1
+title: "&amp"
+state: in_progress
+project: demo
+created: 'DATE'
+=== "*star" / "No project"
+---
+v: 1
+title: "*star"
+state: in_progress
+project: No project
+created: 'DATE'
+=== "@at" / "/srv/x"
+---
+v: 1
+title: "@at"
+state: in_progress
+project: "/srv/x"
+created: 'DATE'
+=== "%pct" / "a: b"
+---
+v: 1
+title: "%pct"
+state: in_progress
+project: 'a: b'
+created: 'DATE'
+=== "`tick`" / "09"
+---
+v: 1
+title: "`tick`"
+state: in_progress
+project: '09'
+created: 'DATE'
+=== "a: b: c" / "yes"
+---
+v: 1
+title: 'a: b: c'
+state: in_progress
+project: 'yes'
+created: 'DATE'
+=== "{braces}" / "[bracketed]"
+---
+v: 1
+title: "{braces}"
+state: in_progress
+project: "[bracketed]"
+created: 'DATE'
+=== "?question" / "café"
+---
+v: 1
+title: "?question"
+state: in_progress
+project: café
+created: 'DATE'
+=== "-5" / "#tagged"
+---
+v: 1
+title: "-5"
+state: in_progress
+project: "#tagged"
+created: 'DATE'
+=== "+5" / ""
+---
+v: 1
+title: "+5"
+state: in_progress
+project: ''
+created: 'DATE'
+=== ".5" / "demo"
+---
+v: 1
+title: ".5"
+state: in_progress
+project: demo
+created: 'DATE'
+=== "1e3" / "No project"
+---
+v: 1
+title: 1e3
+state: in_progress
+project: No project
+created: 'DATE'
+=== "12:30" / "/srv/x"
+---
+v: 1
+title: '12:30'
+state: in_progress
+project: "/srv/x"
+created: 'DATE'
+=== "1,000" / "a: b"
+---
+v: 1
+title: '1,000'
+state: in_progress
+project: 'a: b'
+created: 'DATE'
+=== "Truthy" / "09"
+---
+v: 1
+title: Truthy
+state: in_progress
+project: '09'
+created: 'DATE'
+=== "OFF" / "yes"
+---
+v: 1
+title: 'OFF'
+state: in_progress
+project: 'yes'
+created: 'DATE'
+=== "(parens) first" / "[bracketed]"
+---
+v: 1
+title: "(parens) first"
+state: in_progress
+project: "[bracketed]"
+created: 'DATE'
+=== "/leading slash" / "café"
+---
+v: 1
+title: "/leading slash"
+state: in_progress
+project: café
+created: 'DATE'
+=== "$dollar" / "#tagged"
+---
+v: 1
+title: "$dollar"
+state: in_progress
+project: "#tagged"
+created: 'DATE'
+=== "emoji 🎉 party" / ""
+---
+v: 1
+title: "emoji \U0001F389 party"
+state: in_progress
+project: ''
+created: 'DATE'
+=== "ends with space " / "demo"
+---
+v: 1
+title: ends with space
+state: in_progress
+project: demo
+created: 'DATE'
+=== "back\\slash" / "No project"
+---
+v: 1
+title: back\slash
+state: in_progress
+project: No project
+created: 'DATE'
+=== "12:30:45" / "/srv/x"
+---
+v: 1
+title: '12:30:45'
+state: in_progress
+project: "/srv/x"
+created: 'DATE'
+=== "DATE 10:11:12" / "a: b"
+---
+v: 1
+title: 'DATE 10:11:12'
+state: in_progress
+project: 'a: b'
+created: 'DATE'
+=== "1 2 3" / "09"
+---
+v: 1
+title: 1 2 3
+state: in_progress
+project: '09'
+created: 'DATE'
+=== "0o17" / "yes"
+---
+v: 1
+title: 0o17
+state: in_progress
+project: 'yes'
+created: 'DATE'
+=== "0b101" / "[bracketed]"
+---
+v: 1
+title: '0b101'
+state: in_progress
+project: "[bracketed]"
+created: 'DATE'
+=== "-.inf" / "café"
+---
+v: 1
+title: "-.inf"
+state: in_progress
+project: café
+created: 'DATE'
+=== ".NaN" / "#tagged"
+---
+v: 1
+title: ".NaN"
+state: in_progress
+project: "#tagged"
+created: 'DATE'
+=== "<<" / ""
+---
+v: 1
+title: !!str '<<'
+state: in_progress
+project: ''
+created: 'DATE'
+=== "= equals" / "demo"
+---
+v: 1
+title: "= equals"
+state: in_progress
+project: demo
+created: 'DATE'
+=== "The quick brown fox jumps over the lazy dog while the five boxing wizards jump quickly past the sphinx of black quartz" / "No project"
+---
+v: 1
+title: The quick brown fox jumps over the lazy dog while the five boxing wizards jump
+  quickly past the sphinx of black quartz
+state: in_progress
+project: No project
+created: 'DATE'
+=== "Averyveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryverylongwordwithoutanyspaces" / "/srv/x"
+---
+v: 1
+title: Averyveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryverylongwordwithoutanyspaces
+state: in_progress
+project: "/srv/x"
+created: 'DATE'
+=== "Exactly at the edge of the line width so that folding may or may not happen at this point right" / "a: b"
+---
+v: 1
+title: Exactly at the edge of the line width so that folding may or may not happen
+  at this point right
+state: in_progress
+project: 'a: b'
+created: 'DATE'
+=== "[WIP] The quick brown fox jumps over the lazy dog while the five boxing wizards jump quickly past the sphinx" / "09"
+---
+v: 1
+title: "[WIP] The quick brown fox jumps over the lazy dog while the five boxing wizards
+  jump quickly past the sphinx"
+state: in_progress
+project: '09'
+created: 'DATE'
+=== "'Quoted start' and the quick brown fox jumps over the lazy dog while the five boxing wizards jump quickly" / "yes"
+---
+v: 1
+title: "'Quoted start' and the quick brown fox jumps over the lazy dog while the five
+  boxing wizards jump quickly"
+state: in_progress
+project: 'yes'
+created: 'DATE'
+=== "Tricky: the quick brown fox jumps over the lazy dog while the five boxing wizards jump quickly past it all" / "[bracketed]"
+---
+v: 1
+title: 'Tricky: the quick brown fox jumps over the lazy dog while the five boxing
+  wizards jump quickly past it all'
+state: in_progress
+project: "[bracketed]"
+created: 'DATE'
+=== "Words  with  double  spaces  inside  the  quick  brown  fox  jumps  over  the  lazy  dog  while  the  five  boxing" / "café"
+---
+v: 1
+title: Words  with  double  spaces  inside  the  quick  brown  fox  jumps  over  the  lazy  dog  while  the  five  boxing
+state: in_progress
+project: café
+created: 'DATE'

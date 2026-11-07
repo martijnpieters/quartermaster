@@ -1,0 +1,9 @@
+0 no PR prerequisites recorded
+ 
+---
+1  qm: invalid option: --bogus
+usage: qm pr-requires PR-OR-SHA [--pr PR] [--note TEXT] | --remove PR-OR-SHA [--pr PR] | --list [--pr PR]
+
+---
+1  qm: missing argument: --pr
+usage: qm pr-requires PR-OR-SHA [--pr PR] [--note TEXT] | --remove PR-OR-SHA [--pr PR] | --list [--pr PR]

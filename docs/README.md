@@ -53,6 +53,8 @@ goes in the commit message.
   publishing.
 - [cli](areas/cli.md) — read when you touch a `qm` command, the bare-`qm` fzf viewer or live
   sessions listing.
+- [rust-port](areas/rust-port.md) — read when you touch the Rust crate, its fallback to the
+  Ruby launcher, or the black-box characterization tests that pin both.
 
 ## Also here
 

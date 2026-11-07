@@ -1,0 +1,450 @@
+$ qm "new" "Spelled" "--project=demo" "--branch=feat/x" "--description=From equals"
+exit 0
+--- stdout
+spelled
+--- spelled.md
+---
+v: 1
+title: Spelled
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/x
+---
+
+## Description
+
+From equals
+
+## Notes
+
+## Snapshots
+
+$ qm "new" "Abbreviated" "--proj" "demo" "--desc" "short flags"
+exit 0
+--- stdout
+abbreviated
+--- spelled.md
+---
+v: 1
+title: Spelled
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/x
+---
+
+## Description
+
+From equals
+
+## Notes
+
+## Snapshots
+
+$ qm "new" "--project" "demo" "Options first"
+exit 0
+--- stdout
+options-first
+--- spelled.md
+---
+v: 1
+title: Spelled
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/x
+---
+
+## Description
+
+From equals
+
+## Notes
+
+## Snapshots
+
+$ qm "new" "Dashed" "--" "--literal"
+exit 0
+--- stdout
+dashed-literal
+--- spelled.md
+---
+v: 1
+title: Spelled
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/x
+---
+
+## Description
+
+From equals
+
+## Notes
+
+## Snapshots
+
+$ qm "note" "spelled" "--kind=open" "equals kind"
+exit 0
+--- stdout
+[36m#1[0m [90m[open][0m DATE: equals kind
+--- spelled.md
+---
+v: 1
+title: Spelled
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/x
+---
+
+## Description
+
+From equals
+
+## Notes
+- DATE [open]: equals kind
+
+## Snapshots
+
+$ qm "note" "spelled" "--ki" "history" "abbreviated kind"
+exit 0
+--- stdout
+[36m#2[0m [90m[history][0m DATE: abbreviated kind
+--- spelled.md
+---
+v: 1
+title: Spelled
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/x
+---
+
+## Description
+
+From equals
+
+## Notes
+- DATE [open]: equals kind
+- DATE [history]: abbreviated kind
+
+## Snapshots
+
+$ qm "note" "spelled" "--" "--dashed text"
+exit 0
+--- stdout
+[36m#3[0m [90m[decision][0m DATE: --dashed text
+--- spelled.md
+---
+v: 1
+title: Spelled
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/x
+---
+
+## Description
+
+From equals
+
+## Notes
+- DATE [open]: equals kind
+- DATE [history]: abbreviated kind
+- DATE: --dashed text
+
+## Snapshots
+
+$ qm "retag" "spelled" "01" "history"
+exit 0
+--- stdout
+[36m#1[0m [90m[history][0m DATE: equals kind
+--- spelled.md
+---
+v: 1
+title: Spelled
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/x
+---
+
+## Description
+
+From equals
+
+## Notes
+- DATE [history]: equals kind
+- DATE [history]: abbreviated kind
+- DATE: --dashed text
+
+## Snapshots
+
+$ qm "retag" "spelled" "0x1" "history"
+exit 0
+--- stdout
+[36m#1[0m [90m[history][0m DATE: equals kind
+--- spelled.md
+---
+v: 1
+title: Spelled
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/x
+---
+
+## Description
+
+From equals
+
+## Notes
+- DATE [history]: equals kind
+- DATE [history]: abbreviated kind
+- DATE: --dashed text
+
+## Snapshots
+
+$ qm "retag" "spelled" " 2 " "history"
+exit 0
+--- stdout
+[36m#2[0m [90m[history][0m DATE: abbreviated kind
+--- spelled.md
+---
+v: 1
+title: Spelled
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/x
+---
+
+## Description
+
+From equals
+
+## Notes
+- DATE [history]: equals kind
+- DATE [history]: abbreviated kind
+- DATE: --dashed text
+
+## Snapshots
+
+$ qm "board" "spelled" "https://example.test/x" "--answers-dir=/tmp/a"
+exit 0
+--- stdout
+spelled → https://example.test/x (answers: /tmp/a)
+--- spelled.md
+---
+v: 1
+title: Spelled
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/x
+board: https://example.test/x
+board_answers_dir: "/tmp/a"
+---
+
+## Description
+
+From equals
+
+## Notes
+- DATE [history]: equals kind
+- DATE [history]: abbreviated kind
+- DATE: --dashed text
+
+## Snapshots
+
+$ qm "board" "spelled" "--ans" "/tmp/b" "https://example.test/y"
+exit 0
+--- stdout
+spelled → https://example.test/y (answers: /tmp/b)
+--- spelled.md
+---
+v: 1
+title: Spelled
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/x
+board: https://example.test/y
+board_answers_dir: "/tmp/b"
+---
+
+## Description
+
+From equals
+
+## Notes
+- DATE [history]: equals kind
+- DATE [history]: abbreviated kind
+- DATE: --dashed text
+
+## Snapshots
+
+$ qm "link-branch" "spelled" "--tem" "tmp"
+exit 0
+--- stdout
+spelled → temp: tmp
+--- spelled.md
+---
+v: 1
+title: Spelled
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/x
+board: https://example.test/y
+board_answers_dir: "/tmp/b"
+temp_branches:
+- tmp
+---
+
+## Description
+
+From equals
+
+## Notes
+- DATE [history]: equals kind
+- DATE [history]: abbreviated kind
+- DATE: --dashed text
+
+## Snapshots
+
+$ qm "detach" "spelled" "--session=none"
+exit 0
+--- spelled.md
+---
+v: 1
+title: Spelled
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/x
+board: https://example.test/y
+board_answers_dir: "/tmp/b"
+temp_branches:
+- tmp
+---
+
+## Description
+
+From equals
+
+## Notes
+- DATE [history]: equals kind
+- DATE [history]: abbreviated kind
+- DATE: --dashed text
+
+## Snapshots
+
+$ qm "list" "ignored" "extra"
+exit 0
+--- stdout
+in_progress  demo        abbreviated     0  -     
+in_progress  No project  dashed-literal  0  -     
+in_progress  demo        options-first   0  -     
+in_progress  demo        spelled         0  feat/x
+--- spelled.md
+---
+v: 1
+title: Spelled
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/x
+board: https://example.test/y
+board_answers_dir: "/tmp/b"
+temp_branches:
+- tmp
+---
+
+## Description
+
+From equals
+
+## Notes
+- DATE [history]: equals kind
+- DATE [history]: abbreviated kind
+- DATE: --dashed text
+
+## Snapshots
+
+$ qm "state" "spelled" "fridge" "extra"
+exit 0
+--- spelled.md
+---
+v: 1
+title: Spelled
+state: fridge
+project: demo
+created: 'DATE'
+branches:
+- feat/x
+board: https://example.test/y
+board_answers_dir: "/tmp/b"
+temp_branches:
+- tmp
+---
+
+## Description
+
+From equals
+
+## Notes
+- DATE [history]: equals kind
+- DATE [history]: abbreviated kind
+- DATE: --dashed text
+
+## Snapshots
+
+$ qm "move" "spelled" "p" "extra"
+exit 0
+--- stdout
+spelled → p
+--- spelled.md
+---
+v: 1
+title: Spelled
+state: fridge
+project: p
+created: 'DATE'
+branches:
+- feat/x
+board: https://example.test/y
+board_answers_dir: "/tmp/b"
+temp_branches:
+- tmp
+---
+
+## Description
+
+From equals
+
+## Notes
+- DATE [history]: equals kind
+- DATE [history]: abbreviated kind
+- DATE: --dashed text
+
+## Snapshots
+

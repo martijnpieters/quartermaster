@@ -3,6 +3,22 @@
 
 # Launcher only — the code lives in lib/quartermaster/. Resolved through
 # realpath so the ~/bin/{quartermaster,qm} symlinks keep working.
-require File.join(File.dirname(File.realpath(__FILE__)), "lib", "quartermaster")
+root = File.dirname(File.realpath(__FILE__))
+
+# Opt-in: QM_USE_RUST=1 hands the command to the Rust binary built in this checkout
+# (QM_RUST_BIN names another), which serves what it has ported and comes back here for
+# the rest, marking that with QM_FROM_RUST so the two never bounce. A missing binary
+# changes nothing.
+from_rust = ENV.delete("QM_FROM_RUST")
+if ENV["QM_USE_RUST"] == "1" && !from_rust && $PROGRAM_NAME == __FILE__
+  bin = ENV["QM_RUST_BIN"] || File.join(root, "target", "release", "qm")
+  begin
+    exec(bin, *ARGV) if File.executable?(bin)
+  rescue SystemCallError
+    nil
+  end
+end
+
+require File.join(root, "lib", "quartermaster")
 
 Quartermaster::CLI.new.run(ARGV) if $PROGRAM_NAME == __FILE__

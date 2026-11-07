@@ -1,0 +1,2063 @@
+=== ranked: qm ["ask", "resume", "broke", "after the move"] → 0
+--- stdout
+unicode
+    mentions ünï
+resume-broke
+    the one
+--- stderr
+--- claude args
+[-p]
+[You are a search engine over a developer's work items (stdin holds one
+block per item: slug, title, state, project, branches, description and
+its newest notes). The developer half-remembers an item and describes
+it below. Return the items that match, by meaning rather than keywords,
+best first and at most 8; each with a one-sentence reason that
+names the note or detail that matches. Leave out weak guesses: an empty
+list is the right answer when nothing plausibly matches.
+
+Query: resume broke after the move
+]
+[--model]
+[sonnet]
+[--tools]
+[]
+[--strict-mcp-config]
+[--no-session-persistence]
+[--output-format]
+[json]
+[--json-schema]
+[{"type":"object","required":["hits"],"properties":{"hits":{"type":"array","items":{"type":"object","required":["slug","why"],"properties":{"slug":{"type":"string"},"why":{"type":"string"}}}}}}]
+QM_SKIP=1
+--- claude stdin
+## budget-break
+title: Budget break
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+
+## budget-edge
+title: Budget edge
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-01 eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+## filler-0
+title: Filler 0
+state: in_progress
+project: demo
+description: x
+
+## filler-1
+title: Filler 1
+state: in_progress
+project: demo
+description: x
+
+## filler-2
+title: Filler 2
+state: in_progress
+project: demo
+description: x
+
+## filler-3
+title: Filler 3
+state: in_progress
+project: demo
+description: x
+
+## filler-4
+title: Filler 4
+state: in_progress
+project: demo
+description: x
+
+## filler-5
+title: Filler 5
+state: in_progress
+project: demo
+description: x
+
+## filler-6
+title: Filler 6
+state: in_progress
+project: demo
+description: x
+
+## filler-7
+title: Filler 7
+state: in_progress
+project: demo
+description: x
+
+## filler-8
+title: Filler 8
+state: in_progress
+project: demo
+description: x
+
+## filler-9
+title: Filler 9
+state: in_progress
+project: demo
+description: x
+
+## no-state
+title: No state
+state: 
+project: demo
+
+## plain
+title: Plain
+state: fridge
+project: other
+description: _TODO_
+
+## resume-broke
+title: Resume broke after worktree move
+state: in_progress
+project: demo
+branches: feat/resume, issue/42-resume-fix
+issue: #42
+description: A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A …
+notes:
+- 2026-02-14 note number 14 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-13 note number 13 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-12 note number 12 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-11 note number 11 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-10 note number 10 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-09 note number 9 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-08 note number 8 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-07 note number 7 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-06 note number 6 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding
+
+## unicode
+title: Ünïcode — title 🙂
+state: resolved
+project: demo
+branches: a/issue/x/issue/7
+issue: #7
+description: multi line description ünï
+notes:
+- 2026-03-02 mechanics
+- 2026-03-01 blocked on ünï review
+=== invented and duplicate slugs: qm ["ask", "  padded  query  "] → 0
+--- stdout
+plain
+    first
+--- stderr
+--- claude args
+[-p]
+[You are a search engine over a developer's work items (stdin holds one
+block per item: slug, title, state, project, branches, description and
+its newest notes). The developer half-remembers an item and describes
+it below. Return the items that match, by meaning rather than keywords,
+best first and at most 8; each with a one-sentence reason that
+names the note or detail that matches. Leave out weak guesses: an empty
+list is the right answer when nothing plausibly matches.
+
+Query: padded  query
+]
+[--model]
+[sonnet]
+[--tools]
+[]
+[--strict-mcp-config]
+[--no-session-persistence]
+[--output-format]
+[json]
+[--json-schema]
+[{"type":"object","required":["hits"],"properties":{"hits":{"type":"array","items":{"type":"object","required":["slug","why"],"properties":{"slug":{"type":"string"},"why":{"type":"string"}}}}}}]
+QM_SKIP=1
+--- claude stdin
+## budget-break
+title: Budget break
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+
+## budget-edge
+title: Budget edge
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-01 eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+## filler-0
+title: Filler 0
+state: in_progress
+project: demo
+description: x
+
+## filler-1
+title: Filler 1
+state: in_progress
+project: demo
+description: x
+
+## filler-2
+title: Filler 2
+state: in_progress
+project: demo
+description: x
+
+## filler-3
+title: Filler 3
+state: in_progress
+project: demo
+description: x
+
+## filler-4
+title: Filler 4
+state: in_progress
+project: demo
+description: x
+
+## filler-5
+title: Filler 5
+state: in_progress
+project: demo
+description: x
+
+## filler-6
+title: Filler 6
+state: in_progress
+project: demo
+description: x
+
+## filler-7
+title: Filler 7
+state: in_progress
+project: demo
+description: x
+
+## filler-8
+title: Filler 8
+state: in_progress
+project: demo
+description: x
+
+## filler-9
+title: Filler 9
+state: in_progress
+project: demo
+description: x
+
+## no-state
+title: No state
+state: 
+project: demo
+
+## plain
+title: Plain
+state: fridge
+project: other
+description: _TODO_
+
+## resume-broke
+title: Resume broke after worktree move
+state: in_progress
+project: demo
+branches: feat/resume, issue/42-resume-fix
+issue: #42
+description: A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A …
+notes:
+- 2026-02-14 note number 14 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-13 note number 13 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-12 note number 12 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-11 note number 11 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-10 note number 10 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-09 note number 9 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-08 note number 8 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-07 note number 7 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-06 note number 6 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding
+
+## unicode
+title: Ünïcode — title 🙂
+state: resolved
+project: demo
+branches: a/issue/x/issue/7
+issue: #7
+description: multi line description ünï
+notes:
+- 2026-03-02 mechanics
+- 2026-03-01 blocked on ünï review
+=== more than eight: qm ["ask", "everything"] → 0
+--- stdout
+filler-0
+    reason 0
+filler-1
+    reason 1
+filler-2
+    reason 2
+filler-3
+    reason 3
+filler-4
+    reason 4
+filler-5
+    reason 5
+filler-6
+    reason 6
+filler-7
+    reason 7
+--- stderr
+--- claude args
+[-p]
+[You are a search engine over a developer's work items (stdin holds one
+block per item: slug, title, state, project, branches, description and
+its newest notes). The developer half-remembers an item and describes
+it below. Return the items that match, by meaning rather than keywords,
+best first and at most 8; each with a one-sentence reason that
+names the note or detail that matches. Leave out weak guesses: an empty
+list is the right answer when nothing plausibly matches.
+
+Query: everything
+]
+[--model]
+[sonnet]
+[--tools]
+[]
+[--strict-mcp-config]
+[--no-session-persistence]
+[--output-format]
+[json]
+[--json-schema]
+[{"type":"object","required":["hits"],"properties":{"hits":{"type":"array","items":{"type":"object","required":["slug","why"],"properties":{"slug":{"type":"string"},"why":{"type":"string"}}}}}}]
+QM_SKIP=1
+--- claude stdin
+## budget-break
+title: Budget break
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+
+## budget-edge
+title: Budget edge
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-01 eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+## filler-0
+title: Filler 0
+state: in_progress
+project: demo
+description: x
+
+## filler-1
+title: Filler 1
+state: in_progress
+project: demo
+description: x
+
+## filler-2
+title: Filler 2
+state: in_progress
+project: demo
+description: x
+
+## filler-3
+title: Filler 3
+state: in_progress
+project: demo
+description: x
+
+## filler-4
+title: Filler 4
+state: in_progress
+project: demo
+description: x
+
+## filler-5
+title: Filler 5
+state: in_progress
+project: demo
+description: x
+
+## filler-6
+title: Filler 6
+state: in_progress
+project: demo
+description: x
+
+## filler-7
+title: Filler 7
+state: in_progress
+project: demo
+description: x
+
+## filler-8
+title: Filler 8
+state: in_progress
+project: demo
+description: x
+
+## filler-9
+title: Filler 9
+state: in_progress
+project: demo
+description: x
+
+## no-state
+title: No state
+state: 
+project: demo
+
+## plain
+title: Plain
+state: fridge
+project: other
+description: _TODO_
+
+## resume-broke
+title: Resume broke after worktree move
+state: in_progress
+project: demo
+branches: feat/resume, issue/42-resume-fix
+issue: #42
+description: A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A …
+notes:
+- 2026-02-14 note number 14 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-13 note number 13 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-12 note number 12 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-11 note number 11 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-10 note number 10 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-09 note number 9 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-08 note number 8 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-07 note number 7 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-06 note number 6 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding
+
+## unicode
+title: Ünïcode — title 🙂
+state: resolved
+project: demo
+branches: a/issue/x/issue/7
+issue: #7
+description: multi line description ünï
+notes:
+- 2026-03-02 mechanics
+- 2026-03-01 blocked on ünï review
+=== why in other shapes: qm ["ask", "shapes"] → 0
+--- stdout
+plain
+    
+unicode
+    7
+no-state
+    true
+filler-1
+    
+filler-2
+    multi
+line why
+--- stderr
+--- claude args
+[-p]
+[You are a search engine over a developer's work items (stdin holds one
+block per item: slug, title, state, project, branches, description and
+its newest notes). The developer half-remembers an item and describes
+it below. Return the items that match, by meaning rather than keywords,
+best first and at most 8; each with a one-sentence reason that
+names the note or detail that matches. Leave out weak guesses: an empty
+list is the right answer when nothing plausibly matches.
+
+Query: shapes
+]
+[--model]
+[sonnet]
+[--tools]
+[]
+[--strict-mcp-config]
+[--no-session-persistence]
+[--output-format]
+[json]
+[--json-schema]
+[{"type":"object","required":["hits"],"properties":{"hits":{"type":"array","items":{"type":"object","required":["slug","why"],"properties":{"slug":{"type":"string"},"why":{"type":"string"}}}}}}]
+QM_SKIP=1
+--- claude stdin
+## budget-break
+title: Budget break
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+
+## budget-edge
+title: Budget edge
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-01 eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+## filler-0
+title: Filler 0
+state: in_progress
+project: demo
+description: x
+
+## filler-1
+title: Filler 1
+state: in_progress
+project: demo
+description: x
+
+## filler-2
+title: Filler 2
+state: in_progress
+project: demo
+description: x
+
+## filler-3
+title: Filler 3
+state: in_progress
+project: demo
+description: x
+
+## filler-4
+title: Filler 4
+state: in_progress
+project: demo
+description: x
+
+## filler-5
+title: Filler 5
+state: in_progress
+project: demo
+description: x
+
+## filler-6
+title: Filler 6
+state: in_progress
+project: demo
+description: x
+
+## filler-7
+title: Filler 7
+state: in_progress
+project: demo
+description: x
+
+## filler-8
+title: Filler 8
+state: in_progress
+project: demo
+description: x
+
+## filler-9
+title: Filler 9
+state: in_progress
+project: demo
+description: x
+
+## no-state
+title: No state
+state: 
+project: demo
+
+## plain
+title: Plain
+state: fridge
+project: other
+description: _TODO_
+
+## resume-broke
+title: Resume broke after worktree move
+state: in_progress
+project: demo
+branches: feat/resume, issue/42-resume-fix
+issue: #42
+description: A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A …
+notes:
+- 2026-02-14 note number 14 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-13 note number 13 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-12 note number 12 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-11 note number 11 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-10 note number 10 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-09 note number 9 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-08 note number 8 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-07 note number 7 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-06 note number 6 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding
+
+## unicode
+title: Ünïcode — title 🙂
+state: resolved
+project: demo
+branches: a/issue/x/issue/7
+issue: #7
+description: multi line description ünï
+notes:
+- 2026-03-02 mechanics
+- 2026-03-01 blocked on ünï review
+=== nothing matches: qm ["ask", "nothing"] → 0
+--- stdout
+No work item matches.
+--- stderr
+--- claude args
+[-p]
+[You are a search engine over a developer's work items (stdin holds one
+block per item: slug, title, state, project, branches, description and
+its newest notes). The developer half-remembers an item and describes
+it below. Return the items that match, by meaning rather than keywords,
+best first and at most 8; each with a one-sentence reason that
+names the note or detail that matches. Leave out weak guesses: an empty
+list is the right answer when nothing plausibly matches.
+
+Query: nothing
+]
+[--model]
+[sonnet]
+[--tools]
+[]
+[--strict-mcp-config]
+[--no-session-persistence]
+[--output-format]
+[json]
+[--json-schema]
+[{"type":"object","required":["hits"],"properties":{"hits":{"type":"array","items":{"type":"object","required":["slug","why"],"properties":{"slug":{"type":"string"},"why":{"type":"string"}}}}}}]
+QM_SKIP=1
+--- claude stdin
+## budget-break
+title: Budget break
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+
+## budget-edge
+title: Budget edge
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-01 eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+## filler-0
+title: Filler 0
+state: in_progress
+project: demo
+description: x
+
+## filler-1
+title: Filler 1
+state: in_progress
+project: demo
+description: x
+
+## filler-2
+title: Filler 2
+state: in_progress
+project: demo
+description: x
+
+## filler-3
+title: Filler 3
+state: in_progress
+project: demo
+description: x
+
+## filler-4
+title: Filler 4
+state: in_progress
+project: demo
+description: x
+
+## filler-5
+title: Filler 5
+state: in_progress
+project: demo
+description: x
+
+## filler-6
+title: Filler 6
+state: in_progress
+project: demo
+description: x
+
+## filler-7
+title: Filler 7
+state: in_progress
+project: demo
+description: x
+
+## filler-8
+title: Filler 8
+state: in_progress
+project: demo
+description: x
+
+## filler-9
+title: Filler 9
+state: in_progress
+project: demo
+description: x
+
+## no-state
+title: No state
+state: 
+project: demo
+
+## plain
+title: Plain
+state: fridge
+project: other
+description: _TODO_
+
+## resume-broke
+title: Resume broke after worktree move
+state: in_progress
+project: demo
+branches: feat/resume, issue/42-resume-fix
+issue: #42
+description: A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A …
+notes:
+- 2026-02-14 note number 14 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-13 note number 13 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-12 note number 12 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-11 note number 11 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-10 note number 10 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-09 note number 9 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-08 note number 8 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-07 note number 7 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-06 note number 6 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding
+
+## unicode
+title: Ünïcode — title 🙂
+state: resolved
+project: demo
+branches: a/issue/x/issue/7
+issue: #7
+description: multi line description ünï
+notes:
+- 2026-03-02 mechanics
+- 2026-03-01 blocked on ünï review
+=== no structured output: qm ["ask", "q"] → 1
+--- stdout
+--- stderr
+qm: unexpected answer from claude: {"type":"result","result":"hi"}
+--- claude args
+[-p]
+[You are a search engine over a developer's work items (stdin holds one
+block per item: slug, title, state, project, branches, description and
+its newest notes). The developer half-remembers an item and describes
+it below. Return the items that match, by meaning rather than keywords,
+best first and at most 8; each with a one-sentence reason that
+names the note or detail that matches. Leave out weak guesses: an empty
+list is the right answer when nothing plausibly matches.
+
+Query: q
+]
+[--model]
+[sonnet]
+[--tools]
+[]
+[--strict-mcp-config]
+[--no-session-persistence]
+[--output-format]
+[json]
+[--json-schema]
+[{"type":"object","required":["hits"],"properties":{"hits":{"type":"array","items":{"type":"object","required":["slug","why"],"properties":{"slug":{"type":"string"},"why":{"type":"string"}}}}}}]
+QM_SKIP=1
+--- claude stdin
+## budget-break
+title: Budget break
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+
+## budget-edge
+title: Budget edge
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-01 eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+## filler-0
+title: Filler 0
+state: in_progress
+project: demo
+description: x
+
+## filler-1
+title: Filler 1
+state: in_progress
+project: demo
+description: x
+
+## filler-2
+title: Filler 2
+state: in_progress
+project: demo
+description: x
+
+## filler-3
+title: Filler 3
+state: in_progress
+project: demo
+description: x
+
+## filler-4
+title: Filler 4
+state: in_progress
+project: demo
+description: x
+
+## filler-5
+title: Filler 5
+state: in_progress
+project: demo
+description: x
+
+## filler-6
+title: Filler 6
+state: in_progress
+project: demo
+description: x
+
+## filler-7
+title: Filler 7
+state: in_progress
+project: demo
+description: x
+
+## filler-8
+title: Filler 8
+state: in_progress
+project: demo
+description: x
+
+## filler-9
+title: Filler 9
+state: in_progress
+project: demo
+description: x
+
+## no-state
+title: No state
+state: 
+project: demo
+
+## plain
+title: Plain
+state: fridge
+project: other
+description: _TODO_
+
+## resume-broke
+title: Resume broke after worktree move
+state: in_progress
+project: demo
+branches: feat/resume, issue/42-resume-fix
+issue: #42
+description: A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A …
+notes:
+- 2026-02-14 note number 14 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-13 note number 13 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-12 note number 12 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-11 note number 11 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-10 note number 10 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-09 note number 9 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-08 note number 8 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-07 note number 7 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-06 note number 6 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding
+
+## unicode
+title: Ünïcode — title 🙂
+state: resolved
+project: demo
+branches: a/issue/x/issue/7
+issue: #7
+description: multi line description ünï
+notes:
+- 2026-03-02 mechanics
+- 2026-03-01 blocked on ünï review
+=== hits not a list: qm ["ask", "q"] → 1
+--- stdout
+--- stderr
+qm: unexpected answer from claude: {"structured_output":{"hits":"nope"}}
+--- claude args
+[-p]
+[You are a search engine over a developer's work items (stdin holds one
+block per item: slug, title, state, project, branches, description and
+its newest notes). The developer half-remembers an item and describes
+it below. Return the items that match, by meaning rather than keywords,
+best first and at most 8; each with a one-sentence reason that
+names the note or detail that matches. Leave out weak guesses: an empty
+list is the right answer when nothing plausibly matches.
+
+Query: q
+]
+[--model]
+[sonnet]
+[--tools]
+[]
+[--strict-mcp-config]
+[--no-session-persistence]
+[--output-format]
+[json]
+[--json-schema]
+[{"type":"object","required":["hits"],"properties":{"hits":{"type":"array","items":{"type":"object","required":["slug","why"],"properties":{"slug":{"type":"string"},"why":{"type":"string"}}}}}}]
+QM_SKIP=1
+--- claude stdin
+## budget-break
+title: Budget break
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+
+## budget-edge
+title: Budget edge
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-01 eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+## filler-0
+title: Filler 0
+state: in_progress
+project: demo
+description: x
+
+## filler-1
+title: Filler 1
+state: in_progress
+project: demo
+description: x
+
+## filler-2
+title: Filler 2
+state: in_progress
+project: demo
+description: x
+
+## filler-3
+title: Filler 3
+state: in_progress
+project: demo
+description: x
+
+## filler-4
+title: Filler 4
+state: in_progress
+project: demo
+description: x
+
+## filler-5
+title: Filler 5
+state: in_progress
+project: demo
+description: x
+
+## filler-6
+title: Filler 6
+state: in_progress
+project: demo
+description: x
+
+## filler-7
+title: Filler 7
+state: in_progress
+project: demo
+description: x
+
+## filler-8
+title: Filler 8
+state: in_progress
+project: demo
+description: x
+
+## filler-9
+title: Filler 9
+state: in_progress
+project: demo
+description: x
+
+## no-state
+title: No state
+state: 
+project: demo
+
+## plain
+title: Plain
+state: fridge
+project: other
+description: _TODO_
+
+## resume-broke
+title: Resume broke after worktree move
+state: in_progress
+project: demo
+branches: feat/resume, issue/42-resume-fix
+issue: #42
+description: A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A …
+notes:
+- 2026-02-14 note number 14 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-13 note number 13 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-12 note number 12 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-11 note number 11 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-10 note number 10 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-09 note number 9 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-08 note number 8 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-07 note number 7 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-06 note number 6 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding
+
+## unicode
+title: Ünïcode — title 🙂
+state: resolved
+project: demo
+branches: a/issue/x/issue/7
+issue: #7
+description: multi line description ünï
+notes:
+- 2026-03-02 mechanics
+- 2026-03-01 blocked on ünï review
+=== unparseable: qm ["ask", "q"] → 1
+--- stdout
+--- stderr
+qm: unparseable answer from claude: this is not json at all this is not json at all this is not json at all this is not json at all this is not json at all this is not json at all this is not json at all this is not json at all this is 
+--- claude args
+[-p]
+[You are a search engine over a developer's work items (stdin holds one
+block per item: slug, title, state, project, branches, description and
+its newest notes). The developer half-remembers an item and describes
+it below. Return the items that match, by meaning rather than keywords,
+best first and at most 8; each with a one-sentence reason that
+names the note or detail that matches. Leave out weak guesses: an empty
+list is the right answer when nothing plausibly matches.
+
+Query: q
+]
+[--model]
+[sonnet]
+[--tools]
+[]
+[--strict-mcp-config]
+[--no-session-persistence]
+[--output-format]
+[json]
+[--json-schema]
+[{"type":"object","required":["hits"],"properties":{"hits":{"type":"array","items":{"type":"object","required":["slug","why"],"properties":{"slug":{"type":"string"},"why":{"type":"string"}}}}}}]
+QM_SKIP=1
+--- claude stdin
+## budget-break
+title: Budget break
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+
+## budget-edge
+title: Budget edge
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-01 eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+## filler-0
+title: Filler 0
+state: in_progress
+project: demo
+description: x
+
+## filler-1
+title: Filler 1
+state: in_progress
+project: demo
+description: x
+
+## filler-2
+title: Filler 2
+state: in_progress
+project: demo
+description: x
+
+## filler-3
+title: Filler 3
+state: in_progress
+project: demo
+description: x
+
+## filler-4
+title: Filler 4
+state: in_progress
+project: demo
+description: x
+
+## filler-5
+title: Filler 5
+state: in_progress
+project: demo
+description: x
+
+## filler-6
+title: Filler 6
+state: in_progress
+project: demo
+description: x
+
+## filler-7
+title: Filler 7
+state: in_progress
+project: demo
+description: x
+
+## filler-8
+title: Filler 8
+state: in_progress
+project: demo
+description: x
+
+## filler-9
+title: Filler 9
+state: in_progress
+project: demo
+description: x
+
+## no-state
+title: No state
+state: 
+project: demo
+
+## plain
+title: Plain
+state: fridge
+project: other
+description: _TODO_
+
+## resume-broke
+title: Resume broke after worktree move
+state: in_progress
+project: demo
+branches: feat/resume, issue/42-resume-fix
+issue: #42
+description: A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A …
+notes:
+- 2026-02-14 note number 14 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-13 note number 13 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-12 note number 12 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-11 note number 11 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-10 note number 10 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-09 note number 9 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-08 note number 8 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-07 note number 7 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-06 note number 6 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding
+
+## unicode
+title: Ünïcode — title 🙂
+state: resolved
+project: demo
+branches: a/issue/x/issue/7
+issue: #7
+description: multi line description ünï
+notes:
+- 2026-03-02 mechanics
+- 2026-03-01 blocked on ünï review
+=== array answer: qm ["ask", "q"] → 1
+--- stdout
+--- stderr
+/home/user/quartermaster/lib/quartermaster/ask_search.rb:95:in `dig': no implicit conversion of String into Integer (TypeError)
+
+      hits = JSON.parse(out).dig("structured_output", "hits")
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	from /home/user/quartermaster/lib/quartermaster/ask_search.rb:95:in `parse'
+	from /home/user/quartermaster/lib/quartermaster/ask_search.rb:56:in `call'
+	from /home/user/quartermaster/lib/quartermaster/cli.rb:361:in `cmd_ask'
+	from /home/user/quartermaster/lib/quartermaster/cli.rb:61:in `run'
+	from /home/user/quartermaster/quartermaster:8:in `<main>'
+--- claude args
+[-p]
+[You are a search engine over a developer's work items (stdin holds one
+block per item: slug, title, state, project, branches, description and
+its newest notes). The developer half-remembers an item and describes
+it below. Return the items that match, by meaning rather than keywords,
+best first and at most 8; each with a one-sentence reason that
+names the note or detail that matches. Leave out weak guesses: an empty
+list is the right answer when nothing plausibly matches.
+
+Query: q
+]
+[--model]
+[sonnet]
+[--tools]
+[]
+[--strict-mcp-config]
+[--no-session-persistence]
+[--output-format]
+[json]
+[--json-schema]
+[{"type":"object","required":["hits"],"properties":{"hits":{"type":"array","items":{"type":"object","required":["slug","why"],"properties":{"slug":{"type":"string"},"why":{"type":"string"}}}}}}]
+QM_SKIP=1
+--- claude stdin
+## budget-break
+title: Budget break
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+
+## budget-edge
+title: Budget edge
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-01 eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+## filler-0
+title: Filler 0
+state: in_progress
+project: demo
+description: x
+
+## filler-1
+title: Filler 1
+state: in_progress
+project: demo
+description: x
+
+## filler-2
+title: Filler 2
+state: in_progress
+project: demo
+description: x
+
+## filler-3
+title: Filler 3
+state: in_progress
+project: demo
+description: x
+
+## filler-4
+title: Filler 4
+state: in_progress
+project: demo
+description: x
+
+## filler-5
+title: Filler 5
+state: in_progress
+project: demo
+description: x
+
+## filler-6
+title: Filler 6
+state: in_progress
+project: demo
+description: x
+
+## filler-7
+title: Filler 7
+state: in_progress
+project: demo
+description: x
+
+## filler-8
+title: Filler 8
+state: in_progress
+project: demo
+description: x
+
+## filler-9
+title: Filler 9
+state: in_progress
+project: demo
+description: x
+
+## no-state
+title: No state
+state: 
+project: demo
+
+## plain
+title: Plain
+state: fridge
+project: other
+description: _TODO_
+
+## resume-broke
+title: Resume broke after worktree move
+state: in_progress
+project: demo
+branches: feat/resume, issue/42-resume-fix
+issue: #42
+description: A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A …
+notes:
+- 2026-02-14 note number 14 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-13 note number 13 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-12 note number 12 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-11 note number 11 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-10 note number 10 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-09 note number 9 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-08 note number 8 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-07 note number 7 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-06 note number 6 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding
+
+## unicode
+title: Ünïcode — title 🙂
+state: resolved
+project: demo
+branches: a/issue/x/issue/7
+issue: #7
+description: multi line description ünï
+notes:
+- 2026-03-02 mechanics
+- 2026-03-01 blocked on ünï review
+=== structured output a string: qm ["ask", "q"] → 1
+--- stdout
+--- stderr
+/home/user/quartermaster/lib/quartermaster/ask_search.rb:95:in `dig': String does not have #dig method (TypeError)
+
+      hits = JSON.parse(out).dig("structured_output", "hits")
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	from /home/user/quartermaster/lib/quartermaster/ask_search.rb:95:in `parse'
+	from /home/user/quartermaster/lib/quartermaster/ask_search.rb:56:in `call'
+	from /home/user/quartermaster/lib/quartermaster/cli.rb:361:in `cmd_ask'
+	from /home/user/quartermaster/lib/quartermaster/cli.rb:61:in `run'
+	from /home/user/quartermaster/quartermaster:8:in `<main>'
+--- claude args
+[-p]
+[You are a search engine over a developer's work items (stdin holds one
+block per item: slug, title, state, project, branches, description and
+its newest notes). The developer half-remembers an item and describes
+it below. Return the items that match, by meaning rather than keywords,
+best first and at most 8; each with a one-sentence reason that
+names the note or detail that matches. Leave out weak guesses: an empty
+list is the right answer when nothing plausibly matches.
+
+Query: q
+]
+[--model]
+[sonnet]
+[--tools]
+[]
+[--strict-mcp-config]
+[--no-session-persistence]
+[--output-format]
+[json]
+[--json-schema]
+[{"type":"object","required":["hits"],"properties":{"hits":{"type":"array","items":{"type":"object","required":["slug","why"],"properties":{"slug":{"type":"string"},"why":{"type":"string"}}}}}}]
+QM_SKIP=1
+--- claude stdin
+## budget-break
+title: Budget break
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+
+## budget-edge
+title: Budget edge
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-01 eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+## filler-0
+title: Filler 0
+state: in_progress
+project: demo
+description: x
+
+## filler-1
+title: Filler 1
+state: in_progress
+project: demo
+description: x
+
+## filler-2
+title: Filler 2
+state: in_progress
+project: demo
+description: x
+
+## filler-3
+title: Filler 3
+state: in_progress
+project: demo
+description: x
+
+## filler-4
+title: Filler 4
+state: in_progress
+project: demo
+description: x
+
+## filler-5
+title: Filler 5
+state: in_progress
+project: demo
+description: x
+
+## filler-6
+title: Filler 6
+state: in_progress
+project: demo
+description: x
+
+## filler-7
+title: Filler 7
+state: in_progress
+project: demo
+description: x
+
+## filler-8
+title: Filler 8
+state: in_progress
+project: demo
+description: x
+
+## filler-9
+title: Filler 9
+state: in_progress
+project: demo
+description: x
+
+## no-state
+title: No state
+state: 
+project: demo
+
+## plain
+title: Plain
+state: fridge
+project: other
+description: _TODO_
+
+## resume-broke
+title: Resume broke after worktree move
+state: in_progress
+project: demo
+branches: feat/resume, issue/42-resume-fix
+issue: #42
+description: A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A …
+notes:
+- 2026-02-14 note number 14 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-13 note number 13 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-12 note number 12 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-11 note number 11 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-10 note number 10 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-09 note number 9 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-08 note number 8 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-07 note number 7 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-06 note number 6 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding
+
+## unicode
+title: Ünïcode — title 🙂
+state: resolved
+project: demo
+branches: a/issue/x/issue/7
+issue: #7
+description: multi line description ünï
+notes:
+- 2026-03-02 mechanics
+- 2026-03-01 blocked on ünï review
+=== claude fails with stderr: qm ["ask", "q"] → 1
+--- stdout
+--- stderr
+qm: claude -p failed: boom on stderr
+--- claude args
+[-p]
+[You are a search engine over a developer's work items (stdin holds one
+block per item: slug, title, state, project, branches, description and
+its newest notes). The developer half-remembers an item and describes
+it below. Return the items that match, by meaning rather than keywords,
+best first and at most 8; each with a one-sentence reason that
+names the note or detail that matches. Leave out weak guesses: an empty
+list is the right answer when nothing plausibly matches.
+
+Query: q
+]
+[--model]
+[sonnet]
+[--tools]
+[]
+[--strict-mcp-config]
+[--no-session-persistence]
+[--output-format]
+[json]
+[--json-schema]
+[{"type":"object","required":["hits"],"properties":{"hits":{"type":"array","items":{"type":"object","required":["slug","why"],"properties":{"slug":{"type":"string"},"why":{"type":"string"}}}}}}]
+QM_SKIP=1
+--- claude stdin
+## budget-break
+title: Budget break
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+
+## budget-edge
+title: Budget edge
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-01 eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+## filler-0
+title: Filler 0
+state: in_progress
+project: demo
+description: x
+
+## filler-1
+title: Filler 1
+state: in_progress
+project: demo
+description: x
+
+## filler-2
+title: Filler 2
+state: in_progress
+project: demo
+description: x
+
+## filler-3
+title: Filler 3
+state: in_progress
+project: demo
+description: x
+
+## filler-4
+title: Filler 4
+state: in_progress
+project: demo
+description: x
+
+## filler-5
+title: Filler 5
+state: in_progress
+project: demo
+description: x
+
+## filler-6
+title: Filler 6
+state: in_progress
+project: demo
+description: x
+
+## filler-7
+title: Filler 7
+state: in_progress
+project: demo
+description: x
+
+## filler-8
+title: Filler 8
+state: in_progress
+project: demo
+description: x
+
+## filler-9
+title: Filler 9
+state: in_progress
+project: demo
+description: x
+
+## no-state
+title: No state
+state: 
+project: demo
+
+## plain
+title: Plain
+state: fridge
+project: other
+description: _TODO_
+
+## resume-broke
+title: Resume broke after worktree move
+state: in_progress
+project: demo
+branches: feat/resume, issue/42-resume-fix
+issue: #42
+description: A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A …
+notes:
+- 2026-02-14 note number 14 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-13 note number 13 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-12 note number 12 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-11 note number 11 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-10 note number 10 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-09 note number 9 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-08 note number 8 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-07 note number 7 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-06 note number 6 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding
+
+## unicode
+title: Ünïcode — title 🙂
+state: resolved
+project: demo
+branches: a/issue/x/issue/7
+issue: #7
+description: multi line description ünï
+notes:
+- 2026-03-02 mechanics
+- 2026-03-01 blocked on ünï review
+=== claude fails quietly: qm ["ask", "q"] → 1
+--- stdout
+--- stderr
+qm: claude -p failed: only stdout
+--- claude args
+[-p]
+[You are a search engine over a developer's work items (stdin holds one
+block per item: slug, title, state, project, branches, description and
+its newest notes). The developer half-remembers an item and describes
+it below. Return the items that match, by meaning rather than keywords,
+best first and at most 8; each with a one-sentence reason that
+names the note or detail that matches. Leave out weak guesses: an empty
+list is the right answer when nothing plausibly matches.
+
+Query: q
+]
+[--model]
+[sonnet]
+[--tools]
+[]
+[--strict-mcp-config]
+[--no-session-persistence]
+[--output-format]
+[json]
+[--json-schema]
+[{"type":"object","required":["hits"],"properties":{"hits":{"type":"array","items":{"type":"object","required":["slug","why"],"properties":{"slug":{"type":"string"},"why":{"type":"string"}}}}}}]
+QM_SKIP=1
+--- claude stdin
+## budget-break
+title: Budget break
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+
+## budget-edge
+title: Budget edge
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-01 eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+## filler-0
+title: Filler 0
+state: in_progress
+project: demo
+description: x
+
+## filler-1
+title: Filler 1
+state: in_progress
+project: demo
+description: x
+
+## filler-2
+title: Filler 2
+state: in_progress
+project: demo
+description: x
+
+## filler-3
+title: Filler 3
+state: in_progress
+project: demo
+description: x
+
+## filler-4
+title: Filler 4
+state: in_progress
+project: demo
+description: x
+
+## filler-5
+title: Filler 5
+state: in_progress
+project: demo
+description: x
+
+## filler-6
+title: Filler 6
+state: in_progress
+project: demo
+description: x
+
+## filler-7
+title: Filler 7
+state: in_progress
+project: demo
+description: x
+
+## filler-8
+title: Filler 8
+state: in_progress
+project: demo
+description: x
+
+## filler-9
+title: Filler 9
+state: in_progress
+project: demo
+description: x
+
+## no-state
+title: No state
+state: 
+project: demo
+
+## plain
+title: Plain
+state: fridge
+project: other
+description: _TODO_
+
+## resume-broke
+title: Resume broke after worktree move
+state: in_progress
+project: demo
+branches: feat/resume, issue/42-resume-fix
+issue: #42
+description: A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A …
+notes:
+- 2026-02-14 note number 14 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-13 note number 13 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-12 note number 12 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-11 note number 11 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-10 note number 10 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-09 note number 9 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-08 note number 8 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-07 note number 7 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-06 note number 6 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding
+
+## unicode
+title: Ünïcode — title 🙂
+state: resolved
+project: demo
+branches: a/issue/x/issue/7
+issue: #7
+description: multi line description ünï
+notes:
+- 2026-03-02 mechanics
+- 2026-03-01 blocked on ünï review
+=== percent and quotes in the query: qm ["ask", "100% \"sure\" %<limit>d #{x}"] → 0
+--- stdout
+No work item matches.
+--- stderr
+--- claude args
+[-p]
+[You are a search engine over a developer's work items (stdin holds one
+block per item: slug, title, state, project, branches, description and
+its newest notes). The developer half-remembers an item and describes
+it below. Return the items that match, by meaning rather than keywords,
+best first and at most 8; each with a one-sentence reason that
+names the note or detail that matches. Leave out weak guesses: an empty
+list is the right answer when nothing plausibly matches.
+
+Query: 100% "sure" %<limit>d #{x}
+]
+[--model]
+[sonnet]
+[--tools]
+[]
+[--strict-mcp-config]
+[--no-session-persistence]
+[--output-format]
+[json]
+[--json-schema]
+[{"type":"object","required":["hits"],"properties":{"hits":{"type":"array","items":{"type":"object","required":["slug","why"],"properties":{"slug":{"type":"string"},"why":{"type":"string"}}}}}}]
+QM_SKIP=1
+--- claude stdin
+## budget-break
+title: Budget break
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+
+## budget-edge
+title: Budget edge
+state: in_progress
+project: demo
+description: d
+notes:
+- 2026-04-08 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-07 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-06 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-05 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-04 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-03 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww…
+- 2026-04-01 eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+## filler-0
+title: Filler 0
+state: in_progress
+project: demo
+description: x
+
+## filler-1
+title: Filler 1
+state: in_progress
+project: demo
+description: x
+
+## filler-2
+title: Filler 2
+state: in_progress
+project: demo
+description: x
+
+## filler-3
+title: Filler 3
+state: in_progress
+project: demo
+description: x
+
+## filler-4
+title: Filler 4
+state: in_progress
+project: demo
+description: x
+
+## filler-5
+title: Filler 5
+state: in_progress
+project: demo
+description: x
+
+## filler-6
+title: Filler 6
+state: in_progress
+project: demo
+description: x
+
+## filler-7
+title: Filler 7
+state: in_progress
+project: demo
+description: x
+
+## filler-8
+title: Filler 8
+state: in_progress
+project: demo
+description: x
+
+## filler-9
+title: Filler 9
+state: in_progress
+project: demo
+description: x
+
+## no-state
+title: No state
+state: 
+project: demo
+
+## plain
+title: Plain
+state: fridge
+project: other
+description: _TODO_
+
+## resume-broke
+title: Resume broke after worktree move
+state: in_progress
+project: demo
+branches: feat/resume, issue/42-resume-fix
+issue: #42
+description: A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A long description sentence that goes on. A …
+notes:
+- 2026-02-14 note number 14 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-13 note number 13 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-12 note number 12 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-11 note number 11 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-10 note number 10 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-09 note number 9 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-08 note number 8 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-07 note number 7 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding padding padding
+- 2026-02-06 note number 6 with some words that take up room padding padding padding padding padding padding padding padding padding padding padding padding
+
+## unicode
+title: Ünïcode — title 🙂
+state: resolved
+project: demo
+branches: a/issue/x/issue/7
+issue: #7
+description: multi line description ünï
+notes:
+- 2026-03-02 mechanics
+- 2026-03-01 blocked on ünï review
+=== no query: qm ["ask"] → 1
+--- stdout
+--- stderr
+usage: qm ask QUERY
+--- claude args
+(not run)
+--- claude stdin
+(not run)
+=== blank query: qm ["ask", "   "] → 1
+--- stdout
+--- stderr
+usage: qm ask QUERY
+--- claude args
+(not run)
+--- claude stdin
+(not run)

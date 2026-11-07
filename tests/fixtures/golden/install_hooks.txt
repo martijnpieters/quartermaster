@@ -1,0 +1,100 @@
+# Merge into the "hooks" key of ~/.claude/settings.json (qm never writes it).
+# The SessionStart/SessionEnd entries replace the existing qm ones - kept side by
+# side, every session would be captured and injected twice.
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "REPO/quartermaster hook-session-start"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "REPO/quartermaster hook-session-end"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "REPO/hooks/record-event.sh"
+          },
+          {
+            "type": "command",
+            "command": "REPO/hooks/snapshot-worktree.sh"
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "REPO/hooks/record-event.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "REPO/hooks/record-event.sh"
+          }
+        ]
+      }
+    ],
+    "StopFailure": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "REPO/hooks/record-event.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "REPO/hooks/record-event.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "REPO/hooks/record-event.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "ArtifactData",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "REPO/hooks/record-board-write.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

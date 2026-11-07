@@ -1,0 +1,23 @@
+[qm] This Claude Code session is an aside about work item 'busy-item': a one-off question asked beside the item's chat. It is deliberately not linked to the item — don't run qm commands for it (no note, state, attach or new); the user promotes an answer to the item themselves.
+
+Work item (ROOT/work-items/busy-item.md):
+  title: Busy item
+  state: in_progress
+  project: demo
+  created: DATE
+  branches: feat/busy
+  status board: https://example.test/b
+  sessions: 1 (ids in the file)
+
+## Description
+
+The current truth.
+
+## Notes (6 of 10 — the rest are history or older; read them all with `qm show busy-item`)
+- #1 DATE [open]: note number 0
+- #5 DATE [open]: note number 4
+- #7 DATE [decision]: note number 6
+- #8 DATE [decision]: note number 7
+- #9 DATE [open]: note number 8
+- #10 DATE [decision]: note number 9
+

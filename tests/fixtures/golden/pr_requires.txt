@@ -1,0 +1,1736 @@
+$ qm ["pr-requires", "--list"] → 0
+--- stdout
+acme/widgets#7 has no prerequisites
+--- stderr
+--- store
+(no store)
+$ qm ["pr-requires", "#3"] → 0
+--- stdout
+acme/widgets#7 now requires #3 deployed before merging
+--- stderr
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "3"] → 0
+--- stdout
+acme/widgets#7 already requires #3 deployed before merging
+--- stderr
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "https://github.com/acme/widgets/pull/4", "--note", "  run the backfill\nthen merge  "] → 0
+--- stdout
+acme/widgets#7 now requires #4 deployed before merging
+--- stderr
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "run the backfill\nthen merge"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "acme/widgets#9", "--pr", "https://github.com/acme/widgets/pull/7", "--session", "sess-flag"] → 0
+--- stdout
+acme/widgets#7 now requires #9 deployed before merging
+--- stderr
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "run the backfill\nthen merge"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "aaaaaaa"] → 0
+--- stdout
+acme/widgets#7 now requires aaaaaaa deployed before merging
+--- stderr
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "run the backfill\nthen merge"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "aaaaaaa", "--note", "first line\r\nsecond line\n\nfourth"] → 0
+--- stdout
+acme/widgets#7: note on aaaaaaa set
+--- stderr
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "run the backfill\nthen merge"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "bbbbbbbb", "--pr", "7"] → 1
+--- stdout
+--- stderr
+qm: gh pr view failed: no pull requests found for https://github.com/Acme/Widgets/pull/7
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "run the backfill\nthen merge"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "#3", "--note", ""] → 0
+--- stdout
+acme/widgets#7: note on #3 cleared
+--- stderr
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "run the backfill\nthen merge"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "#4", "--note", "replaced note"] → 0
+--- stdout
+acme/widgets#7: note on #4 set
+--- stderr
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "replaced note"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "#4", "--note", ""] → 0
+--- stdout
+acme/widgets#7: note on #4 cleared
+--- stderr
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "#3", "--pr", "5"] → 0
+--- stdout
+acme/widgets#5 now requires #3 deployed before merging
+--- stderr
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      }
+    ],
+    "https://github.com/acme/widgets/pull/5": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "--remove", "#3", "--pr", "5"] → 0
+--- stdout
+acme/widgets#5 no longer requires #3
+--- stderr
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "ddddddd1"] → 0
+--- stdout
+acme/widgets#7 now requires ddddddd deployed before merging
+--- stderr
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      },
+      {
+        "kind": "commit",
+        "ref": "dddddddd1ddddddddddddddddddddddddddddddd",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "ddddddd2"] → 0
+--- stdout
+acme/widgets#7 now requires ddddddd deployed before merging
+--- stderr
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      },
+      {
+        "kind": "commit",
+        "ref": "dddddddd1ddddddddddddddddddddddddddddddd",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "commit",
+        "ref": "dddddddd2ddddddddddddddddddddddddddddddd",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "--remove", "dddddddd"] → 1
+--- stdout
+--- stderr
+qm: 'dddddddd' matches 2 commit prerequisites of https://github.com/acme/widgets/pull/7
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      },
+      {
+        "kind": "commit",
+        "ref": "dddddddd1ddddddddddddddddddddddddddddddd",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "commit",
+        "ref": "dddddddd2ddddddddddddddddddddddddddddddd",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "--remove", "dddddddd1"] → 0
+--- stdout
+acme/widgets#7 no longer requires ddddddd
+--- stderr
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      },
+      {
+        "kind": "commit",
+        "ref": "dddddddd2ddddddddddddddddddddddddddddddd",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "--remove", "dddddddd2"] → 0
+--- stdout
+acme/widgets#7 no longer requires ddddddd
+--- stderr
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "#7"] → 1
+--- stdout
+--- stderr
+qm: a PR can't require itself
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "https://github.com/acme/widgets/pull/7"] → 1
+--- stdout
+--- stderr
+qm: a PR can't require itself
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "https://github.com/other/repo/pull/1"] → 1
+--- stdout
+--- stderr
+qm: https://github.com/other/repo/pull/1 is in other/repo, not acme/widgets: a prerequisite must be in the same repo as its PR
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "ccccccc"] → 1
+--- stdout
+--- stderr
+qm: ccccccc did not resolve to a commit in acme/widgets
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "zzz"] → 1
+--- stdout
+--- stderr
+qm: 'zzz' is neither a PR (URL, owner/repo#n, #n) nor a commit sha
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", ""] → 1
+--- stdout
+--- stderr
+qm: no prerequisite given
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "https://github.com/acme/widgets/pull/8"] → 1
+--- stdout
+--- stderr
+qm: gh pr view https://github.com/acme/widgets/pull/8 gave no PR URL
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "https://github.com/acme/widgets/pull/10"] → 1
+--- stdout
+--- stderr
+qm: gh pr view https://github.com/acme/widgets/pull/10 returned no JSON
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "https://github.com/acme/widgets/pull/99"] → 1
+--- stdout
+--- stderr
+qm: gh pr view failed: no pull requests found for https://github.com/acme/widgets/pull/99
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "--list"] → 0
+--- stdout
+acme/widgets#7 (https://github.com/acme/widgets/pull/7)
+  needs #3 deployed — added T — not in 2026.10.7
+  needs #4 deployed — added T — not merged
+  needs #9 deployed — added T — closed without merging
+  needs aaaaaaa deployed — added T — ✓ deployed in 2026.10.8
+    note: first line
+          second line
+          
+          fourth
+--- stderr
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "--list", "--pr", "7"] → 1
+--- stdout
+--- stderr
+qm: gh pr view failed: no pull requests found for https://github.com/Acme/Widgets/pull/7
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "--list", "--pr", "5"] → 0
+--- stdout
+acme/widgets#5 has no prerequisites
+--- stderr
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "--list", "--pr", "https://github.com/acme/widgets/pull/99"] → 1
+--- stdout
+--- stderr
+qm: gh pr view failed: no pull requests found for https://github.com/acme/widgets/pull/99
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "--list", "--pr", ""] → 0
+--- stdout
+acme/widgets#7 (https://github.com/acme/widgets/pull/7)
+  needs #3 deployed — added T — not in 2026.10.7
+  needs #4 deployed — added T — not merged
+  needs #9 deployed — added T — closed without merging
+  needs aaaaaaa deployed — added T — ✓ deployed in 2026.10.8
+    note: first line
+          second line
+          
+          fourth
+--- stderr
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "--list", "--pr", "nonsense"] → 1
+--- stdout
+--- stderr
+qm: 'nonsense' is not a PR (URL, owner/repo#n or #n)
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      },
+      {
+        "kind": "commit",
+        "ref": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env",
+        "note": "first line\r\nsecond line\n\nfourth"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "--remove", "aaaaaaa"] → 0
+--- stdout
+acme/widgets#7 no longer requires aaaaaaa
+--- stderr
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "--remove", "bbbb"] → 1
+--- stdout
+--- stderr
+qm: https://github.com/acme/widgets/pull/7 has no prerequisite 'bbbb'
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/9",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-flag"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "--remove", "#9"] → 0
+--- stdout
+acme/widgets#7 no longer requires #9
+--- stderr
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "--remove", "#9"] → 1
+--- stdout
+--- stderr
+qm: https://github.com/acme/widgets/pull/7 has no prerequisite '#9'
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "--remove", "nope", "--pr", "7"] → 1
+--- stdout
+--- stderr
+qm: gh pr view failed: no pull requests found for https://github.com/Acme/Widgets/pull/7
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "--remove", "#3", "--pr", "7"] → 1
+--- stdout
+--- stderr
+qm: gh pr view failed: no pull requests found for https://github.com/Acme/Widgets/pull/7
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "--list"] → 0
+--- stdout
+acme/widgets#7 (https://github.com/acme/widgets/pull/7)
+  needs #3 deployed — added T — not in 2026.10.7
+  needs #4 deployed — added T — not merged
+--- stderr
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      },
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/4",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "--remove", "#4"] → 0
+--- stdout
+acme/widgets#7 no longer requires #4
+--- stderr
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "--list"] → 0
+--- stdout
+acme/widgets#7 (https://github.com/acme/widgets/pull/7)
+  needs #3 deployed — added T — not in 2026.10.7
+--- stderr
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires"] → 1
+--- stdout
+--- stderr
+usage: qm pr-requires PR-OR-SHA [--pr PR] [--note TEXT] | --remove PR-OR-SHA [--pr PR] | --list [--pr PR]
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "a", "b"] → 1
+--- stdout
+--- stderr
+usage: qm pr-requires PR-OR-SHA [--pr PR] [--note TEXT] | --remove PR-OR-SHA [--pr PR] | --list [--pr PR]
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "--list", "extra"] → 1
+--- stdout
+--- stderr
+usage: qm pr-requires PR-OR-SHA [--pr PR] [--note TEXT] | --remove PR-OR-SHA [--pr PR] | --list [--pr PR]
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "--remove", "--list"] → 1
+--- stdout
+--- stderr
+usage: qm pr-requires PR-OR-SHA [--pr PR] [--note TEXT] | --remove PR-OR-SHA [--pr PR] | --list [--pr PR]
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "--remove", "x", "--note", "n"] → 1
+--- stdout
+--- stderr
+usage: qm pr-requires PR-OR-SHA [--pr PR] [--note TEXT] | --remove PR-OR-SHA [--pr PR] | --list [--pr PR]
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      }
+    ]
+  }
+}
+$ qm ["pr-requires", "--list", "--note", "n"] → 1
+--- stdout
+--- stderr
+usage: qm pr-requires PR-OR-SHA [--pr PR] [--note TEXT] | --remove PR-OR-SHA [--pr PR] | --list [--pr PR]
+--- store
+{
+  "v": 1,
+  "prs": {
+    "https://github.com/acme/widgets/pull/7": [
+      {
+        "kind": "pr",
+        "ref": "https://github.com/acme/widgets/pull/3",
+        "repo": "acme/widgets",
+        "addedAt": "T",
+        "session": "sess-env"
+      }
+    ]
+  }
+}
+=== gh calls
+pr view --json url
+pr view --json url
+pr view https://github.com/acme/widgets/pull/3 --json url
+pr view --json url
+pr view https://github.com/acme/widgets/pull/3 --json url
+pr view --json url
+pr view https://github.com/acme/widgets/pull/4 --json url
+pr view https://github.com/acme/widgets/pull/7 --json url
+pr view https://github.com/acme/widgets/pull/9 --json url
+pr view --json url
+api repos/acme/widgets/commits/aaaaaaa --jq .sha
+pr view --json url
+api repos/acme/widgets/commits/aaaaaaa --jq .sha
+pr view https://github.com/Acme/Widgets/pull/7 --json url
+pr view --json url
+pr view https://github.com/acme/widgets/pull/3 --json url
+pr view --json url
+pr view https://github.com/acme/widgets/pull/4 --json url
+pr view --json url
+pr view https://github.com/acme/widgets/pull/4 --json url
+pr view https://github.com/Acme/Widgets/pull/5 --json url
+pr view https://github.com/acme/widgets/pull/3 --json url
+pr view https://github.com/Acme/Widgets/pull/5 --json url
+pr view --json url
+api repos/acme/widgets/commits/ddddddd1 --jq .sha
+pr view --json url
+api repos/acme/widgets/commits/ddddddd2 --jq .sha
+pr view --json url
+pr view --json url
+pr view --json url
+pr view --json url
+pr view https://github.com/acme/widgets/pull/7 --json url
+pr view --json url
+pr view https://github.com/acme/widgets/pull/7 --json url
+pr view --json url
+pr view https://github.com/other/repo/pull/1 --json url
+pr view --json url
+api repos/acme/widgets/commits/ccccccc --jq .sha
+pr view --json url
+pr view --json url
+pr view --json url
+pr view https://github.com/acme/widgets/pull/8 --json url
+pr view --json url
+pr view https://github.com/acme/widgets/pull/10 --json url
+pr view --json url
+pr view https://github.com/acme/widgets/pull/99 --json url
+pr view --json url
+pr view https://github.com/Acme/Widgets/pull/7 --json url
+pr view https://github.com/Acme/Widgets/pull/5 --json url
+pr view https://github.com/acme/widgets/pull/99 --json url
+pr view --json url
+pr view --json url
+pr view --json url
+pr view --json url
+pr view --json url
+pr view https://github.com/Acme/Widgets/pull/7 --json url
+pr view https://github.com/Acme/Widgets/pull/7 --json url
+pr view --json url
+pr view --json url
+pr view --json url

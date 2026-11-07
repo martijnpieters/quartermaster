@@ -1,0 +1,1199 @@
+$ qm "list"
+exit 0
+--- stdout
+No work items yet. Create one with: qm new TITLE
+
+$ qm "new" "Fix login bug" "--project" "demo" "--branch" "feat/a" "--description" "Line one"
+exit 0
+--- stdout
+fix-login-bug
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/a
+---
+
+## Description
+
+Line one
+
+## Notes
+
+## Snapshots
+
+$ qm "new" "Second one" "--project" "a much longer project name"
+exit 0
+--- stdout
+second-one
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/a
+---
+
+## Description
+
+Line one
+
+## Notes
+
+## Snapshots
+
+$ qm "note" "fix-login-bug" "first"
+exit 0
+--- stdout
+[36m#1[0m [90m[decision][0m DATE: first
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/a
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE: first
+
+## Snapshots
+
+$ qm "note" "fix-login-bug" "--kind" "open" "second blocker"
+exit 0
+--- stdout
+[36m#2[0m [90m[open][0m DATE: second blocker
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/a
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE: first
+- DATE [open]: second blocker
+
+## Snapshots
+
+$ qm "note" "fix-login-bug" "third" "--kind" "history"
+exit 0
+--- stdout
+[36m#3[0m [90m[history][0m DATE: third
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/a
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE: first
+- DATE [open]: second blocker
+- DATE [history]: third
+
+## Snapshots
+
+$ qm "note" "fix-login-bug" "DATE: stamped" "text"
+exit 0
+--- stdout
+[36m#4[0m [90m[decision][0m DATE: stamped text
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/a
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE: first
+- DATE [open]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+
+## Snapshots
+
+$ qm "note" "fix-login-bug" "colons: and [brackets] stay"
+exit 0
+--- stdout
+[36m#5[0m [90m[decision][0m DATE: colons: and [brackets] stay
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/a
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE: first
+- DATE [open]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "retag" "fix-login-bug" "1" "open"
+exit 0
+--- stdout
+[36m#1[0m [90m[open][0m DATE: first
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/a
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE [open]: first
+- DATE [open]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "retag" "fix-login-bug" "2" "history"
+exit 0
+--- stdout
+[36m#2[0m [90m[history][0m DATE: second blocker
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/a
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "state" "fix-login-bug" "fridge"
+exit 0
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: fridge
+project: demo
+created: 'DATE'
+branches:
+- feat/a
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "state" "fix-login-bug" "in_progress"
+exit 0
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/a
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "link-branch" "fix-login-bug" "feat/b"
+exit 0
+--- stdout
+fix-login-bug → feat/a, feat/b
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/a
+- feat/b
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "link-branch" "fix-login-bug" "feat/a"
+exit 0
+--- stdout
+fix-login-bug → feat/a, feat/b
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/a
+- feat/b
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "link-branch" "fix-login-bug" "scratch" "--temp"
+exit 0
+--- stdout
+fix-login-bug → temp: scratch
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/a
+- feat/b
+temp_branches:
+- scratch
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "link-branch" "fix-login-bug" "scratch"
+exit 0
+--- stdout
+fix-login-bug → feat/a, feat/b, scratch
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/a
+- feat/b
+- scratch
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "link-branch" "fix-login-bug" "--temp" "tmp2"
+exit 0
+--- stdout
+fix-login-bug → temp: tmp2
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/a
+- feat/b
+- scratch
+temp_branches:
+- tmp2
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "link-branch" "fix-login-bug" "tmp2" "--temp"
+exit 0
+--- stdout
+fix-login-bug → temp: tmp2
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/a
+- feat/b
+- scratch
+temp_branches:
+- tmp2
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "link-branch" "fix-login-bug" "feat/a" "--temp"
+exit 1
+--- stderr
+qm: 'feat/a' is already a linked branch of 'fix-login-bug'; unlink it first
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/a
+- feat/b
+- scratch
+temp_branches:
+- tmp2
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "unlink-branch" "fix-login-bug" "feat/b"
+exit 0
+--- stdout
+fix-login-bug → feat/a, scratch
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feat/a
+- scratch
+temp_branches:
+- tmp2
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "unlink-branch" "fix-login-bug" "feat/a"
+exit 0
+--- stdout
+fix-login-bug → scratch
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- scratch
+temp_branches:
+- tmp2
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "unlink-branch" "fix-login-bug" "scratch"
+exit 0
+--- stdout
+fix-login-bug → (no branches)
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches: []
+temp_branches:
+- tmp2
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "board" "fix-login-bug"
+exit 1
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches: []
+temp_branches:
+- tmp2
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "board" "fix-login-bug" "https://example.test/b"
+exit 0
+--- stdout
+fix-login-bug → https://example.test/b
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches: []
+temp_branches:
+- tmp2
+board: https://example.test/b
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "board" "fix-login-bug"
+exit 0
+--- stdout
+https://example.test/b
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches: []
+temp_branches:
+- tmp2
+board: https://example.test/b
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "board" "fix-login-bug" "https://example.test/b2" "--answers-dir" "/tmp/answers"
+exit 0
+--- stdout
+fix-login-bug → https://example.test/b2 (answers: /tmp/answers)
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches: []
+temp_branches:
+- tmp2
+board: https://example.test/b2
+board_answers_dir: "/tmp/answers"
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "board" "fix-login-bug" "https://example.test/b2"
+exit 0
+--- stdout
+fix-login-bug → https://example.test/b2 (answers: /tmp/answers)
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches: []
+temp_branches:
+- tmp2
+board: https://example.test/b2
+board_answers_dir: "/tmp/answers"
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "board" "fix-login-bug" "https://example.test/b3"
+exit 0
+--- stdout
+fix-login-bug → https://example.test/b3
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches: []
+temp_branches:
+- tmp2
+board: https://example.test/b3
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "board" "fix-login-bug" "--answers-dir" "/srv/a" "https://example.test/b3"
+exit 0
+--- stdout
+fix-login-bug → https://example.test/b3 (answers: /srv/a)
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches: []
+temp_branches:
+- tmp2
+board: https://example.test/b3
+board_answers_dir: "/srv/a"
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "board" "fix-login-bug" "clear"
+exit 0
+--- stdout
+fix-login-bug → (no status board)
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: demo
+created: 'DATE'
+branches: []
+temp_branches:
+- tmp2
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "move" "fix-login-bug" "other project"
+exit 0
+--- stdout
+fix-login-bug → other project
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: other project
+created: 'DATE'
+branches: []
+temp_branches:
+- tmp2
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "move" "fix-login-bug" "/abs/path"
+exit 0
+--- stdout
+fix-login-bug → /abs/path
+--- fix-login-bug.md
+---
+v: 1
+title: Fix login bug
+state: in_progress
+project: "/abs/path"
+created: 'DATE'
+branches: []
+temp_branches:
+- tmp2
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "retitle" "fix-login-bug" "New: title" "[x]"
+exit 0
+--- stdout
+fix-login-bug: New: title [x]
+--- fix-login-bug.md
+---
+v: 1
+title: 'New: title [x]'
+state: in_progress
+project: "/abs/path"
+created: 'DATE'
+branches: []
+temp_branches:
+- tmp2
+---
+
+## Description
+
+Line one
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "describe" "fix-login-bug" "Multi" "word" "description"
+exit 0
+--- fix-login-bug.md
+---
+v: 1
+title: 'New: title [x]'
+state: in_progress
+project: "/abs/path"
+created: 'DATE'
+branches: []
+temp_branches:
+- tmp2
+---
+
+## Description
+
+Multi word description
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "describe" "fix-login-bug" "-"
+exit 0
+--- fix-login-bug.md
+---
+v: 1
+title: 'New: title [x]'
+state: in_progress
+project: "/abs/path"
+created: 'DATE'
+branches: []
+temp_branches:
+- tmp2
+---
+
+## Description
+
+from
+stdin
+
+with a gap
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "describe" "fix-login-bug"
+exit 0
+--- fix-login-bug.md
+---
+v: 1
+title: 'New: title [x]'
+state: in_progress
+project: "/abs/path"
+created: 'DATE'
+branches: []
+temp_branches:
+- tmp2
+---
+
+## Description
+
+piped without dash
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "state" "fix-login-bug" "resolved"
+exit 0
+--- fix-login-bug.md
+---
+v: 1
+title: 'New: title [x]'
+state: resolved
+project: "/abs/path"
+created: 'DATE'
+branches: []
+temp_branches:
+- tmp2
+---
+
+## Description
+
+piped without dash
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "state" "fix-login-bug" "in_progress"
+exit 0
+--- fix-login-bug.md
+---
+v: 1
+title: 'New: title [x]'
+state: in_progress
+project: "/abs/path"
+created: 'DATE'
+branches: []
+temp_branches:
+- tmp2
+---
+
+## Description
+
+piped without dash
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "list"
+exit 0
+--- stdout
+in_progress  /abs/path                   fix-login-bug  0  -
+in_progress  a much longer project name  second-one     0  -
+--- fix-login-bug.md
+---
+v: 1
+title: 'New: title [x]'
+state: in_progress
+project: "/abs/path"
+created: 'DATE'
+branches: []
+temp_branches:
+- tmp2
+---
+
+## Description
+
+piped without dash
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "attach" "second-one" "--session" "s1"
+exit 0
+--- fix-login-bug.md
+---
+v: 1
+title: 'New: title [x]'
+state: in_progress
+project: "/abs/path"
+created: 'DATE'
+branches: []
+temp_branches:
+- tmp2
+---
+
+## Description
+
+piped without dash
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "detach" "second-one" "--session" "s1"
+exit 0
+--- fix-login-bug.md
+---
+v: 1
+title: 'New: title [x]'
+state: in_progress
+project: "/abs/path"
+created: 'DATE'
+branches: []
+temp_branches:
+- tmp2
+---
+
+## Description
+
+piped without dash
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "detach" "second-one" "--session" "never-there"
+exit 0
+--- fix-login-bug.md
+---
+v: 1
+title: 'New: title [x]'
+state: in_progress
+project: "/abs/path"
+created: 'DATE'
+branches: []
+temp_branches:
+- tmp2
+---
+
+## Description
+
+piped without dash
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+
+$ qm "list"
+exit 0
+--- stdout
+in_progress  /abs/path                   fix-login-bug  0  -
+in_progress  a much longer project name  second-one     0  -
+--- fix-login-bug.md
+---
+v: 1
+title: 'New: title [x]'
+state: in_progress
+project: "/abs/path"
+created: 'DATE'
+branches: []
+temp_branches:
+- tmp2
+---
+
+## Description
+
+piped without dash
+
+## Notes
+- DATE [open]: first
+- DATE [history]: second blocker
+- DATE [history]: third
+- DATE: stamped text
+- DATE: colons: and [brackets] stay
+
+## Snapshots
+

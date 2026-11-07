@@ -1,0 +1,396 @@
+$ qm "snooze" "stale" "1d"
+exit 0
+--- stdout
+stale: snoozed until DATE
+--- stale.md
+---
+v: 1
+title: stale
+state: in_progress
+project: demo
+created: 'DATE'
+snooze_until: 'DATE'
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+$ qm "snooze" "stale" "7d"
+exit 0
+--- stdout
+stale: snoozed until DATE
+--- stale.md
+---
+v: 1
+title: stale
+state: in_progress
+project: demo
+created: 'DATE'
+snooze_until: 'DATE'
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+$ qm "snooze" "stale" "30d"
+exit 0
+--- stdout
+stale: snoozed until DATE
+--- stale.md
+---
+v: 1
+title: stale
+state: in_progress
+project: demo
+created: 'DATE'
+snooze_until: 'DATE'
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+$ qm "snooze" "stale" "0d"
+exit 0
+--- stdout
+stale: snoozed until DATE
+--- stale.md
+---
+v: 1
+title: stale
+state: in_progress
+project: demo
+created: 'DATE'
+snooze_until: 'DATE'
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+$ qm "snooze" "stale" "turn"
+exit 0
+--- stdout
+stale: your-turn snoozed until the chat's next turn ends
+--- stale.md
+---
+v: 1
+title: stale
+state: in_progress
+project: demo
+created: 'DATE'
+snooze_until: 'DATE'
+turn_snoozed_at: 'TS'
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+$ qm "snooze" "stale" "1d"
+exit 0
+--- stdout
+stale: snoozed until DATE
+--- stale.md
+---
+v: 1
+title: stale
+state: in_progress
+project: demo
+created: 'DATE'
+snooze_until: 'DATE'
+turn_snoozed_at: 'TS'
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+$ qm "snooze" "stale" "clear"
+exit 0
+--- stdout
+stale: snooze cleared
+--- stale.md
+---
+v: 1
+title: stale
+state: in_progress
+project: demo
+created: 'DATE'
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+$ qm "snooze" "stale" "clear"
+exit 0
+--- stdout
+stale: snooze cleared
+--- stale.md
+---
+v: 1
+title: stale
+state: in_progress
+project: demo
+created: 'DATE'
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+$ qm "snooze" "stale" "turn"
+exit 0
+--- stdout
+stale: your-turn snoozed until the chat's next turn ends
+--- stale.md
+---
+v: 1
+title: stale
+state: in_progress
+project: demo
+created: 'DATE'
+turn_snoozed_at: 'TS'
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+$ qm "snooze" "stale" "bogus"
+exit 1
+--- stderr
+usage: qm snooze SLUG (1d | 7d | Nd | turn | clear)
+--- stale.md
+---
+v: 1
+title: stale
+state: in_progress
+project: demo
+created: 'DATE'
+turn_snoozed_at: 'TS'
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+$ qm "snooze" "stale" "1D"
+exit 1
+--- stderr
+usage: qm snooze SLUG (1d | 7d | Nd | turn | clear)
+--- stale.md
+---
+v: 1
+title: stale
+state: in_progress
+project: demo
+created: 'DATE'
+turn_snoozed_at: 'TS'
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+$ qm "snooze" "stale" "d"
+exit 1
+--- stderr
+usage: qm snooze SLUG (1d | 7d | Nd | turn | clear)
+--- stale.md
+---
+v: 1
+title: stale
+state: in_progress
+project: demo
+created: 'DATE'
+turn_snoozed_at: 'TS'
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+$ qm "snooze" "stale" "-1d"
+exit 1
+--- stderr
+usage: qm snooze SLUG (1d | 7d | Nd | turn | clear)
+--- stale.md
+---
+v: 1
+title: stale
+state: in_progress
+project: demo
+created: 'DATE'
+turn_snoozed_at: 'TS'
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+$ qm "snooze" "stale" "10d "
+exit 1
+--- stderr
+usage: qm snooze SLUG (1d | 7d | Nd | turn | clear)
+--- stale.md
+---
+v: 1
+title: stale
+state: in_progress
+project: demo
+created: 'DATE'
+turn_snoozed_at: 'TS'
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+$ qm "snooze" "stale"
+exit 1
+--- stderr
+usage: qm snooze SLUG (1d | 7d | Nd | turn | clear)
+--- stale.md
+---
+v: 1
+title: stale
+state: in_progress
+project: demo
+created: 'DATE'
+turn_snoozed_at: 'TS'
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+$ qm "snooze"
+exit 1
+--- stderr
+usage: qm snooze SLUG (1d | 7d | Nd | turn | clear)
+--- stale.md
+---
+v: 1
+title: stale
+state: in_progress
+project: demo
+created: 'DATE'
+turn_snoozed_at: 'TS'
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+$ qm "snooze" "ghost" "1d"
+exit 1
+--- stderr
+qm: no work item 'ghost'
+--- stale.md
+---
+v: 1
+title: stale
+state: in_progress
+project: demo
+created: 'DATE'
+turn_snoozed_at: 'TS'
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+$ qm "snooze" "snoozed-past" "clear"
+exit 0
+--- stdout
+snoozed-past: snooze cleared
+--- stale.md
+---
+v: 1
+title: stale
+state: in_progress
+project: demo
+created: 'DATE'
+turn_snoozed_at: 'TS'
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+

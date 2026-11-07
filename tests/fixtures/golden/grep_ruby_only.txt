@@ -1,0 +1,15 @@
+$ qm "grep" "needle"
+exit 1
+--- stderr
+invalid byte sequence in UTF-8
+
+$ qm "grep" "ss"
+exit 1
+--- stderr
+invalid byte sequence in UTF-8
+
+$ qm "grep" "Strasse"
+exit 0
+--- stdout
+No transcript mentions that.
+

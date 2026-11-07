@@ -1,0 +1,37 @@
+$ qm "ack" "degrade"
+exit 0
+--- stdout
+degrade: acknowledged degradation of 2 session(s)
+--- degrade.md
+---
+v: 1
+title: degrade
+state: in_progress
+project: demo
+created: 'DATE'
+sessions:
+- id: d-soon
+  ack_degrade: true
+- id: d-negative
+  ack_degrade: true
+- id: d-fresh
+- id: d-acked
+  ack_degrade: true
+- id: d-snap
+- id: d-live
+- id: d-notranscript
+- id: d-nolog
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+### DATE — session d-snap
+
+text
+

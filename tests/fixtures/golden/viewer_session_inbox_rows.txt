@@ -1,0 +1,290 @@
+$ qm "session-rows" "degrade"
+exit 0
+--- stdout
+d-fresh	[32m↻ resumable [0m	TS	/srv/app
+d-soon	[32m↻ resumable [0m	TS	/srv/app
+d-acked	[32m↻ resumable [0m	TS	/srv/app
+d-snap	[32m↻ resumable [0m	TS	/srv/app
+d-live	[33m● live      [0m	TS	/srv/app
+d-notranscript	[90m✗ expired   [0m	TS	/srv/app
+d-negative	[32m↻ resumable [0m	TS	/srv/app
+d-nolog	[90m? uncaptured[0m	-	-
+--- degrade.md
+---
+v: 1
+title: degrade
+state: in_progress
+project: demo
+created: 'DATE'
+sessions:
+- id: d-soon
+- id: d-negative
+- id: d-fresh
+- id: d-acked
+  ack_degrade: true
+- id: d-snap
+- id: d-live
+- id: d-notranscript
+- id: d-nolog
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+### DATE — session d-snap
+
+text
+
+$ qm "session-rows" "stale"
+exit 0
+--- degrade.md
+---
+v: 1
+title: degrade
+state: in_progress
+project: demo
+created: 'DATE'
+sessions:
+- id: d-soon
+- id: d-negative
+- id: d-fresh
+- id: d-acked
+  ack_degrade: true
+- id: d-snap
+- id: d-live
+- id: d-notranscript
+- id: d-nolog
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+### DATE — session d-snap
+
+text
+
+$ qm "session-rows" "quiet-sessioned"
+exit 0
+--- stdout
+q-recent	[32m↻ resumable [0m	TS	/srv/app
+--- degrade.md
+---
+v: 1
+title: degrade
+state: in_progress
+project: demo
+created: 'DATE'
+sessions:
+- id: d-soon
+- id: d-negative
+- id: d-fresh
+- id: d-acked
+  ack_degrade: true
+- id: d-snap
+- id: d-live
+- id: d-notranscript
+- id: d-nolog
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+### DATE — session d-snap
+
+text
+
+$ qm "session-rows" "ghost"
+exit 1
+--- stderr
+qm: no work item 'ghost'
+--- degrade.md
+---
+v: 1
+title: degrade
+state: in_progress
+project: demo
+created: 'DATE'
+sessions:
+- id: d-soon
+- id: d-negative
+- id: d-fresh
+- id: d-acked
+  ack_degrade: true
+- id: d-snap
+- id: d-live
+- id: d-notranscript
+- id: d-nolog
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+### DATE — session d-snap
+
+text
+
+$ qm "session-rows"
+exit 1
+--- stderr
+usage: qm session-rows SLUG
+--- degrade.md
+---
+v: 1
+title: degrade
+state: in_progress
+project: demo
+created: 'DATE'
+sessions:
+- id: d-soon
+- id: d-negative
+- id: d-fresh
+- id: d-acked
+  ack_degrade: true
+- id: d-snap
+- id: d-live
+- id: d-notranscript
+- id: d-nolog
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+### DATE — session d-snap
+
+text
+
+$ qm "inbox-rows"
+exit 0
+--- stdout
+u-noprompt	TS	/srv/app                          	
+u-unicode	TS	/srv/ünï                          	héllo wörld — ünïcode 🙂 prompt that keeps going on and on an
+u-long	TS	/srv/app                          	0123456789 0123456789 0123456789 0123456789 0123456789 01234
+u-multiline	TS	/srv/other/deeper/than/thirty/four	first line second line third
+u-plain	TS	/srv/app                          	fix the login bug
+--- degrade.md
+---
+v: 1
+title: degrade
+state: in_progress
+project: demo
+created: 'DATE'
+sessions:
+- id: d-soon
+- id: d-negative
+- id: d-fresh
+- id: d-acked
+  ack_degrade: true
+- id: d-snap
+- id: d-live
+- id: d-notranscript
+- id: d-nolog
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+### DATE — session d-snap
+
+text
+
+$ qm "dismiss" "u-plain"
+exit 0
+--- degrade.md
+---
+v: 1
+title: degrade
+state: in_progress
+project: demo
+created: 'DATE'
+sessions:
+- id: d-soon
+- id: d-negative
+- id: d-fresh
+- id: d-acked
+  ack_degrade: true
+- id: d-snap
+- id: d-live
+- id: d-notranscript
+- id: d-nolog
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+### DATE — session d-snap
+
+text
+
+$ qm "inbox-rows"
+exit 0
+--- stdout
+u-noprompt	TS	/srv/app                          	
+u-unicode	TS	/srv/ünï                          	héllo wörld — ünïcode 🙂 prompt that keeps going on and on an
+u-long	TS	/srv/app                          	0123456789 0123456789 0123456789 0123456789 0123456789 01234
+u-multiline	TS	/srv/other/deeper/than/thirty/four	first line second line third
+--- degrade.md
+---
+v: 1
+title: degrade
+state: in_progress
+project: demo
+created: 'DATE'
+sessions:
+- id: d-soon
+- id: d-negative
+- id: d-fresh
+- id: d-acked
+  ack_degrade: true
+- id: d-snap
+- id: d-live
+- id: d-notranscript
+- id: d-nolog
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+### DATE — session d-snap
+
+text
+

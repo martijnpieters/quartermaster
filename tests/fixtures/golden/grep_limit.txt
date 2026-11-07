@@ -1,0 +1,151 @@
+$ qm "grep" "flood"
+exit 0
+--- stdout
+unlinked
+  DATE 10:22  f-59
+    you: flood of sessions
+  DATE 10:20  f-58
+    you: flood of sessions
+  DATE 10:18  f-57
+    you: flood of sessions
+  DATE 10:16  f-56
+    you: flood of sessions
+  DATE 10:14  f-55
+    you: flood of sessions
+  DATE 10:12  f-54
+    you: flood of sessions
+  DATE 10:10  f-53
+    you: flood of sessions
+  DATE 10:08  f-52
+    you: flood of sessions
+  DATE 10:06  f-51
+    you: flood of sessions
+  DATE 10:04  f-50
+    you: flood of sessions
+  DATE 10:02  f-49
+    you: flood of sessions
+  DATE 10:00  f-48
+    you: flood of sessions
+  DATE 10:46  f-47
+    you: flood of sessions
+  DATE 10:44  f-46
+    you: flood of sessions
+  DATE 10:42  f-45
+    you: flood of sessions
+  DATE 10:40  f-44
+    you: flood of sessions
+  DATE 10:38  f-43
+    you: flood of sessions
+  DATE 10:36  f-42
+    you: flood of sessions
+  DATE 10:34  f-41
+    you: flood of sessions
+  DATE 10:32  f-40
+    you: flood of sessions
+  DATE 10:30  f-39
+    you: flood of sessions
+  DATE 10:28  f-38
+    you: flood of sessions
+  DATE 10:26  f-37
+    you: flood of sessions
+  DATE 10:24  f-36
+    you: flood of sessions
+  DATE 10:22  f-35
+    you: flood of sessions
+  DATE 10:20  f-34
+    you: flood of sessions
+  DATE 10:18  f-33
+    you: flood of sessions
+  DATE 10:16  f-32
+    you: flood of sessions
+  DATE 10:14  f-31
+    you: flood of sessions
+  DATE 10:12  f-30
+    you: flood of sessions
+  DATE 10:10  f-29
+    you: flood of sessions
+  DATE 10:08  f-28
+    you: flood of sessions
+  DATE 10:06  f-27
+    you: flood of sessions
+  DATE 10:04  f-26
+    you: flood of sessions
+  DATE 10:02  f-25
+    you: flood of sessions
+  DATE 10:00  f-24
+    you: flood of sessions
+  DATE 10:46  f-23
+    you: flood of sessions
+  DATE 10:44  f-22
+    you: flood of sessions
+  DATE 10:42  f-21
+    you: flood of sessions
+  DATE 10:40  f-20
+    you: flood of sessions
+  DATE 10:38  f-19
+    you: flood of sessions
+  DATE 10:36  f-18
+    you: flood of sessions
+  DATE 10:34  f-17
+    you: flood of sessions
+  DATE 10:32  f-16
+    you: flood of sessions
+  DATE 10:30  f-15
+    you: flood of sessions
+  DATE 10:28  f-14
+    you: flood of sessions
+  DATE 10:26  f-13
+    you: flood of sessions
+  DATE 10:24  f-12
+    you: flood of sessions
+  DATE 10:22  f-11
+    you: flood of sessions
+  DATE 10:20  f-10
+    you: flood of sessions
+  DATE 10:18  f-09
+    you: flood of sessions
+  DATE 10:16  f-08
+    you: flood of sessions
+  DATE 10:14  f-07
+    you: flood of sessions
+  DATE 10:12  f-06
+    you: flood of sessions
+  DATE 10:10  f-05
+    you: flood of sessions
+  DATE 10:08  f-04
+    you: flood of sessions
+  DATE 10:06  f-03
+    you: flood of sessions
+  DATE 10:04  f-02
+    you: flood of sessions
+  DATE 10:02  f-01
+    you: flood of sessions
+  DATE 10:00  f-00
+    you: flood of sessions
+… 5 more transcript(s) not read; narrow the phrase
+Resume: qm resume SLUG --session ID (unlinked: claude --resume ID from its project dir)
+
+$ qm "grep" "needle"
+exit 0
+--- stdout
+done-work  Done work  (resolved)
+  DATE 10:00  s-unicode
+    you: héllo wörld 🙂 ünï — NEEDLE ünï 🙂 after
+later-work  Later work  (fridge)
+  DATE 08:00  s-squash
+    you: first line second line NEEDLE third fourth
+  DATE 10:00  s-long
+    you: …word word word word word word word word word word word word NEEDLE tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail…
+unlinked
+  DATE 10:00  s-wide
+    you: éééééééééééééééééééééééééééééééééééééééééééééééééé NEEDLE and the rest of it
+  DATE 10:00  s-case
+    you: NeEdLe in odd case
+  DATE 10:00  s-unlinked
+    you: needle unlinked and unclaimed
+  DATE 10:00  s-junk
+    you: needle after junk
+  ????-??-?? --:--  s-nots
+    you: needle without any timestamp
+Resume: qm resume SLUG --session ID (unlinked: claude --resume ID from its project dir)
+

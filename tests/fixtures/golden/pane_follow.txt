@@ -1,0 +1,107 @@
+$ qm attach new-item --session s-pane
+exit 0
+--- stdout
+detached from 'old-item'
+--- stderr
+tmux: a1/a1 a2/a2 asd/asd dst/dst mm/mm new-item/new-item other-item/other-item src/src x-item/x-item
+
+$ qm attach third --session s-two
+exit 0
+--- stdout
+detached from 'other-item'
+--- stderr
+tmux: a1/a1 a2/a2 asd/asd dst/dst mm/mm new-item/new-item src/src third/third x-item/x-item
+
+$ qm attach dst --session s-src
+exit 0
+--- stdout
+detached from 'src'
+--- stderr
+qm: src's chat pane stays named src: dst already has a chat running
+tmux: a1/a1 a2/a2 asd/asd dst/dst mm/mm new-item/new-item src/src third/third x-item/x-item
+
+$ qm attach elsewhere --session s-aside
+exit 0
+--- stdout
+detached from 'asd'
+--- stderr
+tmux: a1/a1 a2/a2 asd/asd dst/dst mm/mm new-item/new-item src/src third/third x-item/x-item
+
+$ qm attach mm-target --session s-mm
+exit 0
+--- stdout
+detached from 'mm'
+--- stderr
+tmux: a1/a1 a2/a2 asd/asd dst/dst mm/mm new-item/new-item src/src third/third x-item/x-item
+
+$ qm attach new-item --session ghost
+exit 0
+--- stdout
+--- stderr
+tmux: a1/a1 a2/a2 asd/asd dst/dst mm/mm new-item/new-item src/src third/third x-item/x-item
+
+$ qm attach new-item --session s-pane
+exit 0
+--- stdout
+--- stderr
+tmux: a1/a1 a2/a2 asd/asd dst/dst mm/mm new-item/new-item src/src third/third x-item/x-item
+
+$ qm new Fresh --session s-new
+exit 0
+--- stdout
+detached from 'x-item'
+fresh
+--- stderr
+tmux: a1/a1 a2/a2 asd/asd dst/dst fresh/fresh mm/mm new-item/new-item src/src third/third
+
+$ qm new Fresh again --session never-seen --project demo
+exit 0
+--- stdout
+fresh-again
+--- stderr
+tmux: a1/a1 a2/a2 asd/asd dst/dst fresh/fresh mm/mm new-item/new-item src/src third/third
+
+$ qm attach a3 --session s-multi
+exit 0
+--- stdout
+detached from 'a1'
+detached from 'a2'
+--- stderr
+tmux: a2/a2 a3/a3 asd/asd dst/dst fresh/fresh mm/mm new-item/new-item src/src third/third
+
+$ qm attach
+exit 1
+--- stdout
+--- stderr
+usage: qm attach SLUG --session SESSION_ID
+tmux: a2/a2 a3/a3 asd/asd dst/dst fresh/fresh mm/mm new-item/new-item src/src third/third
+
+$ qm attach a3
+exit 1
+--- stdout
+--- stderr
+usage: qm attach SLUG --session SESSION_ID
+tmux: a2/a2 a3/a3 asd/asd dst/dst fresh/fresh mm/mm new-item/new-item src/src third/third
+
+$ qm attach ghost --session s
+exit 1
+--- stdout
+--- stderr
+qm: no work item 'ghost'
+tmux: a2/a2 a3/a3 asd/asd dst/dst fresh/fresh mm/mm new-item/new-item src/src third/third
+
+$ qm detach a3 --session s-multi
+exit 0
+--- stdout
+--- stderr
+tmux: a2/a2 a3/a3 asd/asd dst/dst fresh/fresh mm/mm new-item/new-item src/src third/third
+
+=== old-item: sessions: []
+=== new-item: sessions: | - id: s-pane | - id: ghost
+=== src: sessions: []
+=== dst: sessions: | - id: s-src
+=== a1: sessions: []
+=== a2: sessions: []
+=== a3: sessions: []
+=== fresh: sessions: | - id: s-new
+=== fresh-again: sessions: | - id: never-seen

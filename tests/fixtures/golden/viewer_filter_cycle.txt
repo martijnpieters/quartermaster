@@ -1,0 +1,357 @@
+$ qm "cycle-filter"
+exit 0
+--- degrade.md
+---
+v: 1
+title: degrade
+state: in_progress
+project: demo
+created: 'DATE'
+sessions:
+- id: d-soon
+- id: d-negative
+- id: d-fresh
+- id: d-acked
+  ack_degrade: true
+- id: d-snap
+- id: d-live
+- id: d-notranscript
+- id: d-nolog
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+### DATE — session d-snap
+
+text
+
+$ qm "viewer-rows"
+exit 0
+--- stdout
+degrade	[32m● in_progress ▶[0m	demo        	degrade                                     	-	[33m⚠ transcript expires in 3d; transcript expires in -3d[0m
+pr-cached-stale-open	[32m● in_progress  [0m	demo        	pr-cached-stale-open                        	c-open-stale	[33m⚠ PR merged — resolve?[0m
+pr-cached	[32m● in_progress  [0m	demo        	pr-cached                                   	c-merged	[33m⚠ PR merged — resolve?[0m
+pr-merged-plus-gone	[32m● in_progress  [0m	demo        	pr-merged-plus-gone                         	merged-b renamed-old	[33m⚠ PR merged — resolve?[0m
+pr-one-merged	[32m● in_progress  [0m	demo        	pr-one-merged                               	b-merged	[33m⚠ PR merged — resolve?[0m
+pr-slash-branch	[32m● in_progress  [0m	demo        	pr-slash-branch                             	feat/x	[33m⚠ PR merged — resolve?[0m
+pr-stack-merged	[32m● in_progress  [0m	demo        	pr-stack-merged                             	s1 s2	[33m⚠ all 2 PRs merged — resolve?[0m
+stale	[32m● in_progress  [0m	demo        	stale                                       	-	[33m⚠ no activity for 11d[0m
+stale-ten-days	[32m● in_progress  [0m	demo        	stale-ten-days                              	-	[33m⚠ no activity for 15d[0m
+snoozed-garbage	[32m● in_progress  [0m	demo        	snoozed-garbage                             	-	[33m⚠ no activity for 30d[0m
+snoozed-past	[32m● in_progress  [0m	demo        	snoozed-past                                	-	[33m⚠ no activity for 30d[0m
+pr-no-project	[32m● in_progress  [0m	elsewhere   	pr-no-project                               	b-merged	
+pr-none-exists	[32m● in_progress  [0m	demo        	pr-none-exists                              	nopr-exists	
+pr-none-gone	[32m● in_progress  [0m	demo        	pr-none-gone                                	nopr	
+pr-stack-mixed	[32m● in_progress  [0m	demo        	pr-stack-mixed                              	m1 m2	
+quiet-sessioned	[32m● in_progress  [0m	demo        	quiet-sessioned                             	-	
+snoozed-future	[32m● in_progress  [0m	demo        	snoozed-future                              	-	
+--- degrade.md
+---
+v: 1
+title: degrade
+state: in_progress
+project: demo
+created: 'DATE'
+sessions:
+- id: d-soon
+- id: d-negative
+- id: d-fresh
+- id: d-acked
+  ack_degrade: true
+- id: d-snap
+- id: d-live
+- id: d-notranscript
+- id: d-nolog
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+### DATE — session d-snap
+
+text
+
+$ qm "cycle-filter"
+exit 0
+--- degrade.md
+---
+v: 1
+title: degrade
+state: in_progress
+project: demo
+created: 'DATE'
+sessions:
+- id: d-soon
+- id: d-negative
+- id: d-fresh
+- id: d-acked
+  ack_degrade: true
+- id: d-snap
+- id: d-live
+- id: d-notranscript
+- id: d-nolog
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+### DATE — session d-snap
+
+text
+
+$ qm "viewer-rows"
+exit 0
+--- stdout
+fridge-old	[36m❄ fridge       [0m	demo        	fridge-old                                  	-	
+--- degrade.md
+---
+v: 1
+title: degrade
+state: in_progress
+project: demo
+created: 'DATE'
+sessions:
+- id: d-soon
+- id: d-negative
+- id: d-fresh
+- id: d-acked
+  ack_degrade: true
+- id: d-snap
+- id: d-live
+- id: d-notranscript
+- id: d-nolog
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+### DATE — session d-snap
+
+text
+
+$ qm "cycle-filter"
+exit 0
+--- degrade.md
+---
+v: 1
+title: degrade
+state: in_progress
+project: demo
+created: 'DATE'
+sessions:
+- id: d-soon
+- id: d-negative
+- id: d-fresh
+- id: d-acked
+  ack_degrade: true
+- id: d-snap
+- id: d-live
+- id: d-notranscript
+- id: d-nolog
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+### DATE — session d-snap
+
+text
+
+$ qm "cycle-filter"
+exit 0
+--- degrade.md
+---
+v: 1
+title: degrade
+state: in_progress
+project: demo
+created: 'DATE'
+sessions:
+- id: d-soon
+- id: d-negative
+- id: d-fresh
+- id: d-acked
+  ack_degrade: true
+- id: d-snap
+- id: d-live
+- id: d-notranscript
+- id: d-nolog
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+### DATE — session d-snap
+
+text
+
+$ qm "viewer-rows"
+exit 0
+--- stdout
+degrade	[32m● in_progress ▶[0m	demo        	degrade                                     	-	[33m⚠ transcript expires in 3d; transcript expires in -3d[0m
+pr-cached-stale-open	[32m● in_progress  [0m	demo        	pr-cached-stale-open                        	c-open-stale	[33m⚠ PR merged — resolve?[0m
+pr-cached	[32m● in_progress  [0m	demo        	pr-cached                                   	c-merged	[33m⚠ PR merged — resolve?[0m
+pr-merged-plus-gone	[32m● in_progress  [0m	demo        	pr-merged-plus-gone                         	merged-b renamed-old	[33m⚠ PR merged — resolve?[0m
+pr-one-merged	[32m● in_progress  [0m	demo        	pr-one-merged                               	b-merged	[33m⚠ PR merged — resolve?[0m
+pr-slash-branch	[32m● in_progress  [0m	demo        	pr-slash-branch                             	feat/x	[33m⚠ PR merged — resolve?[0m
+pr-stack-merged	[32m● in_progress  [0m	demo        	pr-stack-merged                             	s1 s2	[33m⚠ all 2 PRs merged — resolve?[0m
+stale	[32m● in_progress  [0m	demo        	stale                                       	-	[33m⚠ no activity for 11d[0m
+stale-ten-days	[32m● in_progress  [0m	demo        	stale-ten-days                              	-	[33m⚠ no activity for 15d[0m
+snoozed-garbage	[32m● in_progress  [0m	demo        	snoozed-garbage                             	-	[33m⚠ no activity for 30d[0m
+snoozed-past	[32m● in_progress  [0m	demo        	snoozed-past                                	-	[33m⚠ no activity for 30d[0m
+pr-no-project	[32m● in_progress  [0m	elsewhere   	pr-no-project                               	b-merged	
+pr-none-exists	[32m● in_progress  [0m	demo        	pr-none-exists                              	nopr-exists	
+pr-none-gone	[32m● in_progress  [0m	demo        	pr-none-gone                                	nopr	
+pr-resolved	[90m✓ resolved     [0m	demo        	pr-resolved                                 	b-merged	
+pr-stack-mixed	[32m● in_progress  [0m	demo        	pr-stack-mixed                              	m1 m2	
+quiet-sessioned	[32m● in_progress  [0m	demo        	quiet-sessioned                             	-	
+snoozed-future	[32m● in_progress  [0m	demo        	snoozed-future                              	-	
+fridge-old	[36m❄ fridge       [0m	demo        	fridge-old                                  	-	
+resolved-old	[90m✓ resolved     [0m	demo        	resolved-old                                	-	
+--- degrade.md
+---
+v: 1
+title: degrade
+state: in_progress
+project: demo
+created: 'DATE'
+sessions:
+- id: d-soon
+- id: d-negative
+- id: d-fresh
+- id: d-acked
+  ack_degrade: true
+- id: d-snap
+- id: d-live
+- id: d-notranscript
+- id: d-nolog
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+### DATE — session d-snap
+
+text
+
+$ qm "cycle-filter"
+exit 0
+--- degrade.md
+---
+v: 1
+title: degrade
+state: in_progress
+project: demo
+created: 'DATE'
+sessions:
+- id: d-soon
+- id: d-negative
+- id: d-fresh
+- id: d-acked
+  ack_degrade: true
+- id: d-snap
+- id: d-live
+- id: d-notranscript
+- id: d-nolog
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+### DATE — session d-snap
+
+text
+
+$ qm "viewer-rows"
+exit 0
+--- stdout
+degrade	[32m● in_progress ▶[0m	demo        	degrade                                     	-	[33m⚠ transcript expires in 3d; transcript expires in -3d[0m
+pr-cached-stale-open	[32m● in_progress  [0m	demo        	pr-cached-stale-open                        	c-open-stale	[33m⚠ PR merged — resolve?[0m
+pr-cached	[32m● in_progress  [0m	demo        	pr-cached                                   	c-merged	[33m⚠ PR merged — resolve?[0m
+pr-merged-plus-gone	[32m● in_progress  [0m	demo        	pr-merged-plus-gone                         	merged-b renamed-old	[33m⚠ PR merged — resolve?[0m
+pr-one-merged	[32m● in_progress  [0m	demo        	pr-one-merged                               	b-merged	[33m⚠ PR merged — resolve?[0m
+pr-slash-branch	[32m● in_progress  [0m	demo        	pr-slash-branch                             	feat/x	[33m⚠ PR merged — resolve?[0m
+pr-stack-merged	[32m● in_progress  [0m	demo        	pr-stack-merged                             	s1 s2	[33m⚠ all 2 PRs merged — resolve?[0m
+stale	[32m● in_progress  [0m	demo        	stale                                       	-	[33m⚠ no activity for 11d[0m
+stale-ten-days	[32m● in_progress  [0m	demo        	stale-ten-days                              	-	[33m⚠ no activity for 15d[0m
+snoozed-garbage	[32m● in_progress  [0m	demo        	snoozed-garbage                             	-	[33m⚠ no activity for 30d[0m
+snoozed-past	[32m● in_progress  [0m	demo        	snoozed-past                                	-	[33m⚠ no activity for 30d[0m
+pr-no-project	[32m● in_progress  [0m	elsewhere   	pr-no-project                               	b-merged	
+pr-none-exists	[32m● in_progress  [0m	demo        	pr-none-exists                              	nopr-exists	
+pr-none-gone	[32m● in_progress  [0m	demo        	pr-none-gone                                	nopr	
+pr-stack-mixed	[32m● in_progress  [0m	demo        	pr-stack-mixed                              	m1 m2	
+quiet-sessioned	[32m● in_progress  [0m	demo        	quiet-sessioned                             	-	
+snoozed-future	[32m● in_progress  [0m	demo        	snoozed-future                              	-	
+fridge-old	[36m❄ fridge       [0m	demo        	fridge-old                                  	-	
+--- degrade.md
+---
+v: 1
+title: degrade
+state: in_progress
+project: demo
+created: 'DATE'
+sessions:
+- id: d-soon
+- id: d-negative
+- id: d-fresh
+- id: d-acked
+  ack_degrade: true
+- id: d-snap
+- id: d-live
+- id: d-notranscript
+- id: d-nolog
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+### DATE — session d-snap
+
+text
+

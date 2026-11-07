@@ -1,0 +1,27 @@
+$ qm session-item s-resumable
+exit 0
+--- stdout
+Item with ünï title
+--- stderr
+
+$ qm session-item s-live
+exit 0
+--- stdout
+Item with ünï title
+--- stderr
+
+$ qm session-item s-expired
+exit 0
+--- stdout
+--- stderr
+
+$ qm session-item s-unknown
+exit 0
+--- stdout
+--- stderr
+
+$ qm session-item 
+exit 0
+--- stdout
+--- stderr
+

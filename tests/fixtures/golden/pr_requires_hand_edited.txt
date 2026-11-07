@@ -1,0 +1,7 @@
+0 acme/widgets#2 (https://github.com/acme/widgets/pull/2)
+  needs #1 deployed — added 2026-01-01T00:00:00Z
+    note: carriage
+  needs aaaaaaa deployed — added 2026-01-02T00:00:00Z
+  needs bbbbbbb deployed — added 2026-01-03T00:00:00Z
+    note: a
+          bc

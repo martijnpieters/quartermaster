@@ -1,0 +1,176 @@
+$ qm "grep" "login"
+exit 0
+--- stdout
+login-work  Login work  (in_progress)
+  DATE 10:00  s-many (3 hits)
+    you: login one
+later-work  Later work  (fridge)
+  DATE 10:00  s-user (2 hits)
+    you: Please fix the Login bug in the form
+Resume: qm resume SLUG --session ID (unlinked: claude --resume ID from its project dir)
+
+$ qm "grep" "LOGIN"
+exit 0
+--- stdout
+login-work  Login work  (in_progress)
+  DATE 10:00  s-many (3 hits)
+    you: login one
+later-work  Later work  (fridge)
+  DATE 10:00  s-user (2 hits)
+    you: Please fix the Login bug in the form
+Resume: qm resume SLUG --session ID (unlinked: claude --resume ID from its project dir)
+
+$ qm "grep" "fix" "the" "login"
+exit 0
+--- stdout
+later-work  Later work  (fridge)
+  DATE 10:00  s-user
+    you: Please fix the Login bug in the form
+Resume: qm resume SLUG --session ID (unlinked: claude --resume ID from its project dir)
+
+$ qm "grep" "needle"
+exit 0
+--- stdout
+done-work  Done work  (resolved)
+  DATE 10:00  s-unicode
+    you: héllo wörld 🙂 ünï — NEEDLE ünï 🙂 after
+later-work  Later work  (fridge)
+  DATE 08:00  s-squash
+    you: first line second line NEEDLE third fourth
+  DATE 10:00  s-long
+    you: …word word word word word word word word word word word word NEEDLE tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail…
+unlinked
+  DATE 10:00  s-wide
+    you: éééééééééééééééééééééééééééééééééééééééééééééééééé NEEDLE and the rest of it
+  DATE 10:00  s-case
+    you: NeEdLe in odd case
+  DATE 10:00  s-unlinked
+    you: needle unlinked and unclaimed
+  DATE 10:00  s-junk
+    you: needle after junk
+  ????-??-?? --:--  s-nots
+    you: needle without any timestamp
+Resume: qm resume SLUG --session ID (unlinked: claude --resume ID from its project dir)
+
+$ qm "grep" "NEEDLE"
+exit 0
+--- stdout
+done-work  Done work  (resolved)
+  DATE 10:00  s-unicode
+    you: héllo wörld 🙂 ünï — NEEDLE ünï 🙂 after
+later-work  Later work  (fridge)
+  DATE 08:00  s-squash
+    you: first line second line NEEDLE third fourth
+  DATE 10:00  s-long
+    you: …word word word word word word word word word word word word NEEDLE tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail tail…
+unlinked
+  DATE 10:00  s-wide
+    you: éééééééééééééééééééééééééééééééééééééééééééééééééé NEEDLE and the rest of it
+  DATE 10:00  s-case
+    you: NeEdLe in odd case
+  DATE 10:00  s-unlinked
+    you: needle unlinked and unclaimed
+  DATE 10:00  s-junk
+    you: needle after junk
+  ????-??-?? --:--  s-nots
+    you: needle without any timestamp
+Resume: qm resume SLUG --session ID (unlinked: claude --resume ID from its project dir)
+
+$ qm "grep" "quoted"
+exit 0
+--- stdout
+done-work  Done work  (resolved)
+  DATE 10:00  s-escapes
+    you: say "quoted" and back\slash and tab here
+Resume: qm resume SLUG --session ID (unlinked: claude --resume ID from its project dir)
+
+$ qm "grep" "\"quoted\""
+exit 0
+--- stdout
+done-work  Done work  (resolved)
+  DATE 10:00  s-escapes
+    you: say "quoted" and back\slash and tab here
+Resume: qm resume SLUG --session ID (unlinked: claude --resume ID from its project dir)
+
+$ qm "grep" "back\\slash"
+exit 0
+--- stdout
+done-work  Done work  (resolved)
+  DATE 10:00  s-escapes
+    you: say "quoted" and back\slash and tab here
+Resume: qm resume SLUG --session ID (unlinked: claude --resume ID from its project dir)
+
+$ qm "grep" "tab\there"
+exit 0
+--- stdout
+done-work  Done work  (resolved)
+  DATE 10:00  s-escapes
+    you: say "quoted" and back\slash and tab	here
+Resume: qm resume SLUG --session ID (unlinked: claude --resume ID from its project dir)
+
+$ qm "grep" "ünï"
+exit 0
+--- stdout
+done-work  Done work  (resolved)
+  DATE 10:00  s-unicode
+    you: héllo wörld 🙂 ünï — NEEDLE ünï 🙂 after
+Resume: qm resume SLUG --session ID (unlinked: claude --resume ID from its project dir)
+
+$ qm "grep" "🙂"
+exit 0
+--- stdout
+done-work  Done work  (resolved)
+  DATE 10:00  s-unicode
+    you: héllo wörld 🙂 ünï — NEEDLE ünï 🙂 after
+Resume: qm resume SLUG --session ID (unlinked: claude --resume ID from its project dir)
+
+$ qm "grep" "no such phrase anywhere"
+exit 0
+--- stdout
+No transcript mentions that.
+
+$ qm "grep" "in a sidechain"
+exit 0
+--- stdout
+No transcript mentions that.
+
+$ qm "grep" "tool output"
+exit 0
+--- stdout
+No transcript mentions that.
+
+$ qm "grep" "compact summary"
+exit 0
+--- stdout
+No transcript mentions that.
+
+$ qm "grep"
+exit 1
+--- stderr
+usage: qm grep PHRASE
+
+$ qm "grep" "  "
+exit 1
+--- stderr
+usage: qm grep PHRASE
+
+$ qm "grep" "--help"
+exit 0
+--- stdout
+No transcript mentions that.
+
+$ qm "grep" "-n"
+exit 0
+--- stdout
+No transcript mentions that.
+
+$ qm "grep" "a.c*"
+exit 0
+--- stdout
+No transcript mentions that.
+
+$ qm "grep" "(login"
+exit 0
+--- stdout
+No transcript mentions that.
+

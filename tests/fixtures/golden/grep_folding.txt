@@ -1,0 +1,24 @@
+$ qm "grep" "strasse"
+exit 0
+--- stdout
+unlinked
+  DATE 10:00  s-eszett
+    you: Die Straße first filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler …
+Resume: qm resume SLUG --session ID (unlinked: claude --resume ID from its project dir)
+
+$ qm "grep" "straße"
+exit 0
+--- stdout
+unlinked
+  DATE 10:00  s-eszett
+    you: Die Straße first filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler …
+Resume: qm resume SLUG --session ID (unlinked: claude --resume ID from its project dir)
+
+$ qm "grep" "ss"
+exit 0
+--- stdout
+unlinked
+  DATE 10:00  s-eszett
+    you: Die Straße first filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler…
+Resume: qm resume SLUG --session ID (unlinked: claude --resume ID from its project dir)
+

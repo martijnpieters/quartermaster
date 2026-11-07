@@ -1,0 +1,490 @@
+$ qm show stacked-item
+exit 0
+--- stdout
+[1mTitle of stacked-item[0m
+in_progress · demo · a2 (PR OPEN) · a1 (PR MERGED) · a3 · devsrv dev · created DATE
+stack: main → a1 (#1) → a2 (#2) ⟳ → a3
+[36m#1[0m [90m[decision][0m DATE: plain decision
+
+[1mSessions[0m
+(none)
+
+## Description
+
+d
+
+## Notes
+[36m#1[0m [90m[decision][0m DATE: plain decision
+
+## Snapshots
+--- stderr
+
+$ qm show two-stacks
+exit 0
+--- stdout
+[1mTitle of two-stacks[0m
+in_progress · demo · b2 (PR MERGED) · a1 (PR MERGED) · a2 (PR OPEN) · a3 · b1 (PR OPEN) · devsrv dev · created DATE
+stack: develop → b1 (#11) → b2
+stack: main → a1 (#1) → a2 (#2) ⟳ → a3
+
+[1mSessions[0m
+(none)
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+--- stderr
+
+$ qm show loose-item
+exit 0
+--- stdout
+[1mTitle of loose-item[0m
+in_progress · demo · feature-x · loose-gone · main · devsrv dev · created DATE
+[36m#1[0m [90m[history][0m DATE: only history
+
+[1mSessions[0m
+(none)
+
+## Description
+
+d
+
+## Notes
+[36m#1[0m [90m[history][0m DATE: only history
+
+## Snapshots
+--- stderr
+
+$ qm show d-item
+exit 0
+--- stdout
+[1mTitle of d-item[0m
+in_progress · demo · d1 (PR OPEN) · devsrv dev · created DATE
+stack: main → d1
+
+[1mSessions[0m
+(none)
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+--- stderr
+
+$ qm show issue-item
+exit 0
+--- stdout
+[1mTitle of issue-item[0m
+in_progress · demo · issue/123-thing · other/issue/45x · issue #123 · snoozed until DATE · devsrv tunnel · created DATE
+[36m#1[0m [90m[open][0m DATE: blocked on review
+
+[1mSessions[0m
+(none)
+
+## Description
+
+d
+
+## Notes
+[36m#1[0m [90m[open][0m DATE: blocked on review
+[36m#2[0m [90m[decision][0m DATE: later decision
+[36m#3[0m [90m[history][0m DATE: mechanics
+[36m#4[0m [90m[decision][0m DATE: odd marker
+
+## Snapshots
+--- stderr
+
+$ qm show usage-item
+exit 0
+--- stdout
+[1mTitle of usage-item[0m
+in_progress · demo · devsrv dev · created DATE
+[36m#2[0m [90m[open][0m DATE: second open
+
+[1mSessions[0m
+us-expired [90m✗ expired   [0m TS /srv/app
+us-custom [32m↻ resumable [0m TS /srv/app
+us-live [33m● live      [0m TS /srv/app
+us-main [32m↻ resumable [0m TS /srv/app
+us-uncaptured-id [90m? uncaptured[0m - -
+
+[1mUsage[0m  ≥ 2.0M tok · ≥ $4.41 · partial
+[33m  partial: no price for mystery-model[0m
+  us-expir · expired, never tallied
+  us-custo · 2k tok · ~$0.00
+  us-live · 10 tok · ~$0.00
+  us-main · 2.0M tok · ~$4.41 · 2 sub-agents
+  us-uncap · expired, never tallied
+  us-aside · aside · 20 tok · ~$0.00
+
+## Description
+
+d
+
+## Notes
+[36m#1[0m [90m[open][0m DATE: first open
+[36m#2[0m [90m[open][0m DATE: second open
+
+## Snapshots
+--- stderr
+
+$ qm show bare
+exit 0
+--- stdout
+[1mTitle of bare[0m
+in_progress · demo · devsrv dev · created DATE
+
+[1mSessions[0m
+(none)
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+--- stderr
+
+$ qm show degrade
+exit 0
+--- stdout
+[1mdegrade[0m
+in_progress · demo · devsrv dev · created DATE
+[33m⚠ transcript expires in 3d[0m
+[33m⚠ transcript expires in -3d[0m
+
+[1mSessions[0m
+d-fresh [32m↻ resumable [0m TS /srv/app
+d-soon [32m↻ resumable [0m TS /srv/app
+d-acked [32m↻ resumable [0m TS /srv/app
+d-snap [32m↻ resumable [0m TS /srv/app
+d-live [33m● live      [0m TS /srv/app
+d-notranscript [90m✗ expired   [0m TS /srv/app
+d-negative [32m↻ resumable [0m TS /srv/app
+d-nolog [90m? uncaptured[0m - -
+
+[1mUsage[0m  ≥ 0 tok · ≥ $0.00
+  d-fresh · 0 tok · ~$0.00
+  d-soon · 0 tok · ~$0.00
+  d-acked · 0 tok · ~$0.00
+  d-snap · 0 tok · ~$0.00
+  d-live · 0 tok · ~$0.00
+  d-notran · expired, never tallied
+  d-negati · 0 tok · ~$0.00
+  d-nolog · expired, never tallied
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+### DATE — session d-snap
+
+text
+--- stderr
+
+$ qm show stale
+exit 0
+--- stdout
+[1mstale[0m
+in_progress · demo · devsrv dev · created DATE
+[33m⚠ no activity for 11d[0m
+
+[1mSessions[0m
+(none)
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+--- stderr
+
+$ qm show snoozed-past
+exit 0
+--- stdout
+[1msnoozed-past[0m
+in_progress · demo · snoozed until DATE · devsrv dev · created DATE
+[33m⚠ no activity for 30d[0m
+
+[1mSessions[0m
+(none)
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+--- stderr
+
+$ qm show quiet-sessioned
+exit 0
+--- stdout
+[1mquiet-sessioned[0m
+in_progress · demo · devsrv dev · created DATE
+
+[1mSessions[0m
+q-recent [32m↻ resumable [0m TS /srv/app
+
+[1mUsage[0m  0 tok · ~$0.00
+  q-recent · 0 tok · ~$0.00
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+--- stderr
+
+$ qm show pr-one-merged
+exit 0
+--- stdout
+[1mpr-one-merged[0m
+in_progress · demo · b-merged (PR MERGED) · devsrv dev · created DATE
+[33m⚠ PR merged — resolve?[0m
+
+[1mSessions[0m
+(none)
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+--- stderr
+
+$ qm show pr-stack-merged
+exit 0
+--- stdout
+[1mpr-stack-merged[0m
+in_progress · demo · s1 (PR MERGED) · s2 (PR MERGED) · devsrv dev · created DATE
+[33m⚠ all 2 PRs merged — resolve?[0m
+
+[1mSessions[0m
+(none)
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+--- stderr
+
+$ qm show pr-merged-plus-gone
+exit 0
+--- stdout
+[1mpr-merged-plus-gone[0m
+in_progress · demo · merged-b (PR MERGED) · renamed-old · devsrv dev · created DATE
+[33m⚠ PR merged — resolve?[0m
+
+[1mSessions[0m
+(none)
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+--- stderr
+
+$ qm show pr-cached
+exit 0
+--- stdout
+[1mpr-cached[0m
+in_progress · demo · c-merged (PR MERGED) · devsrv dev · created DATE
+[33m⚠ PR merged — resolve?[0m
+
+[1mSessions[0m
+(none)
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+--- stderr
+
+$ qm show pr-cached-stale-open
+exit 0
+--- stdout
+[1mpr-cached-stale-open[0m
+in_progress · demo · c-open-stale (PR MERGED) · devsrv dev · created DATE
+[33m⚠ PR merged — resolve?[0m
+
+[1mSessions[0m
+(none)
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+--- stderr
+
+$ qm show pr-no-project
+exit 0
+--- stdout
+[1mpr-no-project[0m
+in_progress · elsewhere · b-merged · created DATE
+
+[1mSessions[0m
+(none)
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+--- stderr
+
+$ qm show pr-slash-branch
+exit 0
+--- stdout
+[1mpr-slash-branch[0m
+in_progress · demo · feat/x (PR MERGED) · devsrv dev · created DATE
+[33m⚠ PR merged — resolve?[0m
+
+[1mSessions[0m
+(none)
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+--- stderr
+
+$ qm show resolved-old
+exit 0
+--- stdout
+[1mresolved-old[0m
+resolved · demo · devsrv dev · created DATE
+
+[1mSessions[0m
+(none)
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+--- stderr
+
+$ qm show ghost
+exit 1
+--- stdout
+--- stderr
+qm: no work item 'ghost'
+
+$ qm show
+exit 1
+usage: qm show SLUG
+=== work-items/stacked-item.md
+---
+v: 1
+title: Title of stacked-item
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- a2
+- a1
+- a3
+=== work-items/two-stacks.md
+---
+v: 1
+title: Title of two-stacks
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- b2
+- a1
+- a2
+- a3
+- b1
+=== work-items/loose-item.md
+---
+v: 1
+title: Title of loose-item
+state: in_progress
+project: demo
+created: 'DATE'
+branches:
+- feature-x
+- loose-gone
+- main
+=== work-items/usage-item.md
+---
+v: 1
+title: Title of usage-item
+state: in_progress
+project: demo
+created: 'DATE'
+sessions:
+- id: us-live
+  ack_degrade: true
+- id: us-main
+  ack_degrade: true
+- id: us-custom
+  ack_degrade: true
+- id: us-expired
+  ack_degrade: true
+- id: us-uncaptured-id
+  ack_degrade: true
+=== pr-cache.json
+{"demo#c-merged":{"state":"MERGED","number":7,"url":"https://example.test/pull/7","ts":T},"demo#c-open-stale":{"state":"MERGED","number":8,"url":"https://example.test/pull/8","ts":T},"demo#a2":{"state":"OPEN","number":22,"url":"https://example.test/pull/22","ts":T},"demo#a1":{"state":"MERGED","number":21,"url":"https://example.test/pull/21","ts":T},"demo#a3":{"state":null,"ts":T},"demo#b2":{"state":"MERGED","number":32,"url":"https://example.test/pull/32","ts":T},"demo#b1":{"state":"OPEN","number":31,"url":"https://example.test/pull/31","ts":T},"demo#feature-x":{"state":null,"ts":T},"demo#loose-gone":{"state":null,"ts":T},"demo#main":{"state":null,"ts":T},"demo#d1":{"state":"OPEN","number":41,"url":"https://example.test/pull/41","ts":T},"demo#issue/123-thing":{"state":null,"ts":T},"demo#other/issue/45x":{"state":null,"ts":T},"demo#b-merged":{"state":"MERGED","number":1,"url":"https://example.test/pull/1","ts":T},"demo#s1":{"state":"MERGED","number":2,"url":"https://example.test/pull/2","ts":T},"demo#s2":{"state":"MERGED","number":3,"url":"https://example.test/pull/3","ts":T},"demo#merged-b":{"state":"MERGED","number":6,"url":"https://example.test/pull/6","ts":T},"demo#renamed-old":{"state":null,"ts":T},"elsewhere#b-merged":{"state":null,"ts":T},"demo#feat/x":{"state":"MERGED","number":9,"url":"https://example.test/pull/9","ts":T}}
+=== usage-cache.json
+{"v":1,"sessions":{"us-custom":{"main":["BASE/transcripts/p/us-custom.jsonl",118,MTIME],"files":{"BASE/transcripts/p/us-custom.jsonl":{"size":118,"mtime":MTIME,"offset":118,"buckets":{},"pending":{"id":"c1","bucket":"mystery-model","tokens":{"input":1000,"cache_write_5m":0,"cache_write_1h":0,"cache_read":0,"output":1000}}}}},"us-live":{"main":["BASE/transcripts/p/us-live.jsonl",114,MTIME],"files":{"BASE/transcripts/p/us-live.jsonl":{"size":114,"mtime":MTIME,"offset":114,"buckets":{},"pending":{"id":"l1","bucket":"claude-opus-5-5","tokens":{"input":5,"cache_write_5m":0,"cache_write_1h":0,"cache_read":0,"output":5}}}}},"us-main":{"main":["BASE/transcripts/p/us-main.jsonl",245,MTIME],"files":{"BASE/transcripts/p/us-main.jsonl":{"size":245,"mtime":MTIME,"offset":245,"buckets":{"claude-opus-5-5":{"input":1000,"cache_write_5m":0,"cache_write_1h":0,"cache_read":0,"output":500}},"pending":{"id":"m2","bucket":"claude-sonnet-5-5:long","tokens":{"input":2000000,"cache_write_5m":0,"cache_write_1h":0,"cache_read":0,"output":40000}}},"BASE/transcripts/p/us-main/subagents/a.jsonl":{"size":118,"mtime":MTIME,"offset":118,"buckets":{},"pending":{"id":"s1","bucket":"claude-haiku-5-5","tokens":{"input":300,"cache_write_5m":0,"cache_write_1h":0,"cache_read":0,"output":30}}},"BASE/transcripts/p/us-main/subagents/b.jsonl":{"size":118,"mtime":MTIME,"offset":118,"buckets":{},"pending":{"id":"s2","bucket":"claude-haiku-5-5","tokens":{"input":400,"cache_write_5m":0,"cache_write_1h":0,"cache_read":0,"output":40}}}}},"us-aside":{"main":["BASE/transcripts/p/us-aside.jsonl",119,MTIME],"files":{"BASE/transcripts/p/us-aside.jsonl":{"size":119,"mtime":MTIME,"offset":119,"buckets":{},"pending":{"id":"as1","bucket":"claude-sonnet-5-5","tokens":{"input":10,"cache_write_5m":0,"cache_write_1h":0,"cache_read":0,"output":10}}}}},"d-fresh":{"main":["BASE/transcripts/p/d-fresh.jsonl",3,MTIME],"files":{"BASE/transcripts/p/d-fresh.jsonl":{"size":3,"mtime":MTIME,"offset":3,"buckets":{},"pending":null}}},"d-soon":{"main":["BASE/transcripts/p/d-soon.jsonl",3,MTIME],"files":{"BASE/transcripts/p/d-soon.jsonl":{"size":3,"mtime":MTIME,"offset":3,"buckets":{},"pending":null}}},"d-acked":{"main":["BASE/transcripts/p/d-acked.jsonl",3,MTIME],"files":{"BASE/transcripts/p/d-acked.jsonl":{"size":3,"mtime":MTIME,"offset":3,"buckets":{},"pending":null}}},"d-snap":{"main":["BASE/transcripts/p/d-snap.jsonl",3,MTIME],"files":{"BASE/transcripts/p/d-snap.jsonl":{"size":3,"mtime":MTIME,"offset":3,"buckets":{},"pending":null}}},"d-live":{"main":["BASE/transcripts/p/d-live.jsonl",3,MTIME],"files":{"BASE/transcripts/p/d-live.jsonl":{"size":3,"mtime":MTIME,"offset":3,"buckets":{},"pending":null}}},"d-negative":{"main":["BASE/transcripts/p/d-negative.jsonl",3,MTIME],"files":{"BASE/transcripts/p/d-negative.jsonl":{"size":3,"mtime":MTIME,"offset":3,"buckets":{},"pending":null}}},"q-recent":{"main":["BASE/transcripts/p/q-recent.jsonl",3,MTIME],"files":{"BASE/transcripts/p/q-recent.jsonl":{"size":3,"mtime":MTIME,"offset":3,"buckets":{},"pending":null}}}}}
+=== gh calls
+a2
+a1
+a3
+b2
+b1
+feature-x
+loose-gone
+main
+d1
+issue/123-thing
+other/issue/45x
+b-merged
+s1
+s2
+merged-b
+renamed-old
+c-open-stale
+feat/x

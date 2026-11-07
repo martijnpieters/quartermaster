@@ -1,0 +1,104 @@
+$ qm "viewer-rows"
+exit 0
+--- stdout
+fridge-old	[36m❄ fridge       [0m	demo        	fridge-old                                  	-	
+--- degrade.md
+---
+v: 1
+title: degrade
+state: in_progress
+project: demo
+created: 'DATE'
+sessions:
+- id: d-soon
+- id: d-negative
+- id: d-fresh
+- id: d-acked
+  ack_degrade: true
+- id: d-snap
+- id: d-live
+- id: d-notranscript
+- id: d-nolog
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+### DATE — session d-snap
+
+text
+
+$ qm "cycle-filter"
+exit 0
+--- degrade.md
+---
+v: 1
+title: degrade
+state: in_progress
+project: demo
+created: 'DATE'
+sessions:
+- id: d-soon
+- id: d-negative
+- id: d-fresh
+- id: d-acked
+  ack_degrade: true
+- id: d-snap
+- id: d-live
+- id: d-notranscript
+- id: d-nolog
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+### DATE — session d-snap
+
+text
+
+$ qm "viewer-rows"
+exit 0
+--- stdout
+pr-resolved	[90m✓ resolved     [0m	demo        	pr-resolved                                 	b-merged	
+resolved-old	[90m✓ resolved     [0m	demo        	resolved-old                                	-	
+--- degrade.md
+---
+v: 1
+title: degrade
+state: in_progress
+project: demo
+created: 'DATE'
+sessions:
+- id: d-soon
+- id: d-negative
+- id: d-fresh
+- id: d-acked
+  ack_degrade: true
+- id: d-snap
+- id: d-live
+- id: d-notranscript
+- id: d-nolog
+---
+
+## Description
+
+d
+
+## Notes
+
+## Snapshots
+
+### DATE — session d-snap
+
+text
+

@@ -99,6 +99,7 @@ finishes with " answer my question about them: …" or " ask me what I want to k
 
 - **Ruby, `#!/usr/bin/env ruby`**, resolved through asdf shims to whatever the session's cwd
   pins; a user-level asdf default (`~/.tool-versions`) must exist or capture dies outside pinned repos.
+  A Rust port is under way and serves the hooks first ([rust-port](areas/rust-port.md)).
 - **Stdlib only** (yaml, json, open3, optparse, socket, …), no gems: gems install per Ruby
   version, so a hook firing in a repo pinned to another Ruby would not find them.
 - **Ruby 3.3 is the syntax floor** for the same reason — no 4.x-only features.

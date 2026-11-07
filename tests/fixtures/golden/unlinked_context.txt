@@ -1,0 +1,11 @@
+[qm] This Claude Code session (u1) is not linked to a work item. Project baseline from cwd: No project.
+
+Open work items:
+- alpha — Alpha (demo, feat/a, in_progress)
+- beta — Beta (No project, fridge)
+
+Linking protocol — link once the session's purpose is clear from the first message or two, and re-link the moment its work moves to a different item (attach and new both move the session):
+- Continues one of the items above → qm attach <slug> --session u1
+- Substantial new work → qm new "Title" --project "No project" --session u1 --description "..." — but sanity-check the project against the topic first; if it seems wrong, ask the user instead of guessing.
+- Trivial or throwaway (quick question, one-off lookup) → do nothing, and don't mention any of this.
+After linking, keep the work item current: qm note <slug> "..." at meaningful milestones.

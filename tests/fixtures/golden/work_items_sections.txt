@@ -1,0 +1,104 @@
+$ qm "note" "bare" "first"
+exit 0
+--- stdout
+[36m#1[0m [90m[decision][0m DATE: first
+--- bare.md
+---
+v: 1
+title: Bare
+state: in_progress
+project: No project
+created: 'DATE'
+---
+just text
+
+## Notes
+- DATE: first
+
+$ qm "describe" "bare" "desc"
+exit 0
+--- bare.md
+---
+v: 1
+title: Bare
+state: in_progress
+project: No project
+created: 'DATE'
+---
+just text
+
+## Notes
+- DATE: first
+
+## Description
+
+desc
+
+
+$ qm "retag" "bare" "1" "open"
+exit 0
+--- stdout
+[36m#1[0m [90m[open][0m DATE: first
+--- bare.md
+---
+v: 1
+title: Bare
+state: in_progress
+project: No project
+created: 'DATE'
+---
+just text
+
+## Notes
+- DATE [open]: first
+
+## Description
+
+desc
+
+
+$ qm "note" "gaps" "second"
+exit 0
+--- stdout
+[36m#2[0m [90m[decision][0m DATE: second
+--- gaps.md
+---
+v: 1
+title: Gaps
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Notes
+- DATE: old
+- DATE: second
+
+
+
+## Snapshots
+
+$ qm "describe" "gaps" "desc"
+exit 0
+--- gaps.md
+---
+v: 1
+title: Gaps
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Notes
+- DATE: old
+- DATE: second
+
+
+
+## Snapshots
+
+## Description
+
+desc
+
+

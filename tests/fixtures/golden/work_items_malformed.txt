@@ -1,0 +1,21 @@
+$ qm "state" "broken" "fridge"
+exit 1
+--- stderr
+qm: malformed work item file ROOT/work-items/broken.md
+--- broken.md
+no front matter at all
+
+$ qm "note" "broken" "x"
+exit 1
+--- stderr
+qm: malformed work item file ROOT/work-items/broken.md
+--- broken.md
+no front matter at all
+
+$ qm "list"
+exit 1
+--- stderr
+qm: malformed work item file ROOT/work-items/broken.md
+--- broken.md
+no front matter at all
+

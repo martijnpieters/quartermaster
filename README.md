@@ -46,7 +46,8 @@ anywhere.
 ## Requirements
 
 - **macOS** (see [macOS-only pieces](#macos-only-pieces); other platforms are untested).
-- **Ruby ≥ 3.3** as `ruby` on `PATH` (stdlib only, no gems).
+- **Ruby ≥ 3.3** as `ruby` on `PATH` (stdlib only, no gems). Optionally a **Rust toolchain** to build
+  the Rust port ([migrating](#migrating-from-the-ruby-version-to-the-rust-version)).
 - **Claude Code**, **git**, **tmux** (the GUI's chats) and **fzf** (the terminal viewer).
 - **gh**, logged in, for PRs, issues and reviews, plus the gh-stack extension (`gh stack`) for
   stacked branches. Everything GitHub works offline too, just without that data.
@@ -70,6 +71,47 @@ qm install-hooks                                     # prints the hooks snippet
    `"statusLine": {"type": "command", "command": "/usr/bin/ruby ~/.claude/statusline.rb"}` in settings.json.
 4. Start a Claude Code session anywhere. qm creates `~/.claude/quartermaster/` (override with
    `QM_ROOT`) with a commented `config.yml`. Run `qm gui` and open the URL it prints.
+
+## Migrating from the Ruby version to the Rust version
+
+`qm` is being ported to Rust area by area (the rule: a port changes no behavior; details and what is
+ported in [`docs/areas/rust-port.md`](docs/areas/rust-port.md)). The Rust binary serves what it has
+ported and hands every other command to the Ruby launcher, so you can move over in steps and go back
+at any step. **Your data needs no migration:** both versions read and write the same
+`~/.claude/quartermaster/` (or `QM_ROOT`): work items, `sessions.jsonl`, drafts, caches. Neither
+version rewrites a file the other cannot read.
+
+1. **Build the binary** (needs a Rust toolchain: `asdf plugin add rust && asdf install` picks up the
+   version in `.tool-versions`, or use [rustup](https://rustup.rs)):
+   ```sh
+   cd ~/code/quartermaster && git pull && cargo build --release   # target/release/qm
+   ```
+2. **Try it, changing nothing.** Run `target/release/qm list`, `qm show SLUG`, `qm attention` next to
+   your usual `qm`: the output matches. A command that is not ported yet is passed on to Ruby.
+3. **Switch the command line** (reversible, no files to edit): `export QM_USE_RUST=1` in your shell
+   profile. `~/bin/qm` is still the Ruby launcher; with that variable it runs `target/release/qm`
+   first (`QM_RUST_BIN` names another binary) and the binary hands back what it has not ported. Unset
+   the variable to return to Ruby. The variable only reaches hooks if your Claude Code environment has
+   it, so this step does not move your hooks.
+4. **Switch the hooks** (optional; the capture hooks `hook-session-start` and `hook-session-end` are
+   ported and inject byte-identical context). In `~/.claude/settings.json`, change the two commands
+   `…/quartermaster hook-session-start` and `…/quartermaster hook-session-end` that
+   `qm install-hooks` printed to `…/quartermaster/target/release/qm hook-session-start` (and `-end`).
+   Leave the other entries, which run the `hooks/*.sh` scripts, as they are. Roll back by putting the
+   launcher path back. Rebuild after every `git pull`; the hooks run whatever binary is at that path.
+5. **The GUI.** `qm gui` is still Ruby's, and the status line (`statusline/statusline.rb`) stays Ruby
+   for now. To try the Rust server, run it beside the Ruby one on a *copy* of your data, since it
+   writes real files when you click:
+   ```sh
+   cp -a ~/.claude/quartermaster /tmp/qm-try
+   QM_ROOT=/tmp/qm-try QM_RUST_GUI=1 QM_GUI_PORT=7712 target/release/qm gui
+   ```
+   Routes and actions not ported yet answer `501 not ported yet`, so it is not yet a replacement for
+   daily use; the list is in `docs/areas/rust-port.md`.
+
+**Rolling back** is always the reverse: unset `QM_USE_RUST`, point the hooks at the launcher again
+(`qm install-hooks` prints them), keep using `qm gui` as before. Report anything that differs between
+the two versions as a bug: they are meant to be indistinguishable.
 
 ## Optional features
 
@@ -238,7 +280,9 @@ Know this before you install it:
 ## Development
 
 ```sh
-ruby test/quartermaster_test.rb
+ruby test/quartermaster_test.rb                          # the Ruby suite
+cargo test                                                # pins Ruby's behavior (the Ruby launcher is the default)
+QM_BIN=$PWD/target/debug/qm cargo test                    # the same assertions against the Rust binary
 ```
 
 Tests run against a temporary `QM_ROOT` and their own tmux socket, never your live data. Start

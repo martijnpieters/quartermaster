@@ -1,0 +1,70 @@
+qm — Claude Code session & work-item tracker
+
+Viewer:
+  qm [viewer]                                                     open the fzf UI: filter, search, preview, resume, triage (default in a terminal)
+  qm gui                                                          open the web UI in a browser: kanban board, detail view, inbox rail
+  qm caffeinate on|off|auto|status                                keep the Mac from idle-sleeping while the running qm gui lives, or (auto) while any session works (its ☕ toggle)
+  qm open-chat SLUG [--benchmark BRANCH]                          bring the qm gui up on the item's (or a loose--<id>) chat: its open Arc tab, else a new browser tab (a notification's click); --benchmark also opens that branch's benchmark modal
+
+Work items:
+  qm new TITLE [flags]                                            create a work item, prints its slug (--project P, --branch B, --session ID, --description TEXT, --pf-mode MODE)
+  qm attach SLUG --session ID                                     attach a session to a work item (detaches it from any other item)
+  qm detach SLUG --session ID                                     detach a session, leaving it unlinked
+  qm note SLUG TEXT                                               append a dated progress note (--kind open|decision|history, default decision)
+  qm retag SLUG POSITION KIND                                     change a note's kind (POSITION is the number qm show prints)
+  qm state SLUG STATE                                             set the state: in_progress | fridge | resolved
+  qm link-branch SLUG [BRANCH]                                    add a branch to the item (stacks welcome; default: the current branch; --temp: a scratch branch cleanup may delete)
+  qm unlink-branch SLUG BRANCH                                    remove a branch (a rename is unlink + link)
+  qm board SLUG [URL]                                             set the item's status board URL; no URL prints it, 'clear' removes it (--answers-dir DIR: where blocked answers go)
+  qm board-rows SLUG                                              the item's board rows, mirrored from the board-writes hook log (--json)
+  qm board-answer SLUG ROW TEXT                                   answer a blocked board row (writes ROW.md into the answers dir)
+  qm move SLUG PROJECT                                            reassign the item to another project
+  qm retitle SLUG NEW_TITLE                                       change the title (the slug never changes)
+  qm describe SLUG [TEXT]                                         replace the Description; '-' or no TEXT reads stdin
+  qm show SLUG                                                    print the item with its sessions and warnings
+  qm draft add SLUG --path P --line N --body TEXT                 record a review finding as a 🤖 GitHub draft on the item's PR for the user to curate and post (--start-line, --side old, --commit SHA, --file, --reply-to THREAD_ID, --pr URL, --body-file F; see qm draft add --help)
+  qm draft list SLUG [--json]                                     the item's drafts: review comments, replies, chat comments, annotations
+  qm issues-dir SLUG                                              print the item's issue drafts directory, creating it (the /draft-issues skill writes there)
+  qm cleanup SLUG [--yes] [--force P]                             plan removing the item's worktrees, test DBs, merged and temp branches, issue drafts; --yes runs the [x] ones, --force adds a ⚠ one
+  qm sweep [--yes] [--force P]                                    the same over every .claude/worktrees worktree and worktree-* branch of every known repo, and the issue drafts of resolved or deleted items
+  qm list                                                         table of all work items (also the default without a terminal)
+  qm ask QUERY                                                    find items by meaning: describe what you half-remember (headless claude -p)
+  qm feature-use [--days N]                                       which commands, GUI actions and GUI reads were used in the last N days (default 30), and which known ones weren't
+  qm grep PHRASE                                                  find sessions whose prompts or replies contain PHRASE (rg over transcripts, asides left out), by work item
+
+Attention:
+  qm attention                                                    chats by whose move it is (blocked, your turn, working) with context size; expiring transcripts, stale items, merged PRs
+  qm overview --json [PATH]                                       snapshot of in-progress and fridge items (chat state, pane, open notes) for the phone work-items page; PATH is written atomically
+  qm overview --url                                               print the work-items page's URL (config.yml overview_artifact:)
+  qm overview --page                                              print the page file's path when it changed since last published, else nothing
+  qm overview --page-published                                    record the page file as published
+  qm ack SLUG [SESSION_ID]                                        accept a transcript degrading un-distilled (permanent, per session)
+  qm snooze SLUG DURATION                                         mute the staleness nudge: 1d | 7d | Nd; quiet the chat's current your-turn: turn; or clear
+  qm distill SLUG [--session ID] [--force]                        snapshot every expiring transcript, or the latest (headless claude -p); --force replaces an existing snapshot
+
+Sessions:
+  qm resume SLUG [--session ID]                                   resume the newest surviving session in a new Warp tab (--here: this terminal)
+  qm start SLUG                                                   new session for the item, linked via QM_ITEM (--here: this terminal)
+  qm pane-start SLUG                                              fresh chat for the item in its pane of the running qm gui (pane-resume SLUG [--session ID]: resume there)
+  qm start-issue N [--project P]                                  work item + issue/N-… worktree off fresh origin for GitHub issue N, chat opened in the running qm gui with a read-the-issue kickoff (default project: this repo's, else config.yml's default_project; an item already holding it is reused)
+  qm loose [--project P] [--model M] [--starter NAME] ["prompt"]  a loose chat (no work item) in the running qm gui, the prompt as its first message (default project: this repo's; --starter: a config.yml loose_starters entry loads something first); no gui → prints how to start one
+  qm rotate SLUG [--close]                                        the running qm gui's context rotation of the item's chat (--close: wrap up & close)
+  qm rotate --self [--close]                                      run by a GUI chat after writing its notes: hand over to a fresh chat once this turn ends (the /rotate skill)
+  qm pr SLUG                                                      open the linked branch's PR in the browser
+  qm pr-requires PR-OR-SHA [--pr PR] [--note TEXT]                record (locally) that a PR may only merge once an earlier PR or commit is deployed; --note sets/replaces its note (e.g. a backfill to run first), "" clears it; --remove, --list (--pr default: the current branch's PR)
+  qm work-on SLUG [--mode M] [--worktree PATH]                    dev-server switch (when the project has one) + the IDE (when configured) on the item's target worktree (stack top, else last linked; created when missing)
+  qm pf-switch SLUG [--mode M] [--worktree PATH]                  serve the item's target worktree with the project's dev server in the item's mode (or --mode)
+  qm ide SLUG [--worktree PATH]                                   open the item's target worktree in the IDE (config.yml's ide_command; off when unset)
+  qm term SLUG [--worktree PATH]                                  open a Warp tab in the item's target worktree
+  qm pf-mode SLUG [MODE]                                          set or print the item's dev-server mode (one of its project's dev_server modes in config.yml)
+  qm pf-status / pf-stop                                          what the dev server serves (mode, worktree, running); stop it
+  qm sessions [-n N]                                              recently captured sessions
+  qm inbox [-n N]                                                 captured sessions not linked to any work item
+  qm dismiss SESSION_ID                                           drop a session from the inbox
+  qm show-session SESSION_ID                                      session details, including its first prompt
+  qm session-item SESSION_ID                                      print the title of the work item a session is linked to (for the status line)
+
+Hooks:
+  qm hook-session-start                                           called by Claude Code: capture, link, inject context
+  qm hook-session-end                                             called by Claude Code: capture duration, commits, diff stat
+  qm install-hooks                                                print the settings.json hooks snippet (session capture + event/board/snapshot appenders)

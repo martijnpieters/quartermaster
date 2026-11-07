@@ -1,0 +1,33 @@
+# qm configuration (see the README's config.yml reference).
+# projects: maps a project name to its main repo root. Sessions in that repo
+# (or its worktrees) get the project as baseline; everything else is "No project".
+# A project is a plain path, or a mapping with root: plus optional feature keys.
+projects:
+#   my-app: ~/code/my-app
+#   my-web-app:
+#     root: ~/code/my-web-app
+#     dev_server:                  # one dev server, switched between checkouts
+#       command: devserver         # runs: devserver switch PATH MODE | stop | status
+#       modes: [dev, tunnel]
+#       default_mode: dev
+#       status_url: http://localhost:3000/status   # optional, JSON {mode, root, switching}
+#       state_file: ~/.cache/devserver/current     # optional, "<mode> <root>"
+#     test_db: my-test-db          # new worktrees: my-test-db prepare; cleanup: my-test-db drop PATH
+#     review_skill: /review-my-pr  # the PRs view's Review (default /code-review)
+#     pr_prerequisites: true       # PRs ship by release: sessions learn qm pr-requires
+#     benchmark:                   # branch benchmarks (a Rails app on Postgres)
+#       database: my_app_benchmark # read, or cloned as a template for a writing case
+#       skill: ~/.claude/skills/benchmark  # holds SKILL.md and bin/example_bench.rb
+#       notes: Use nothing outside the bundle.  # optional extra prompt lines
+#     ide_command: [code, PATH]    # optional: this project's own IDE (overrides the global one)
+#
+# default_project: my-app         # where a bare issue number starts (default: the first project)
+#
+# ide_command: [open, -a, MyIDE, PATH]  # "Open in …": argv, PATH = the checkout (shell-escaped
+#                                       # inside a longer element, e.g. [zsh, -ic, "myide PATH"])
+# ide_label: MyIDE                      # the buttons' name (default IDE); unset ide_command = no IDE
+#
+# loose_starters:                 # the loose-chat dialog's "Start with" presets
+#   backlog:
+#     label: Sprint backlog
+#     prompt: Load the open issues of the current sprint. Don't change code. Then give a one-line count of them and

@@ -1,0 +1,817 @@
+$ qm "new"
+exit 1
+--- stderr
+usage: qm new TITLE [--project P] [--branch B] [--session ID] [--description TEXT] [--pf-mode MODE]
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "new" "  "
+exit 1
+--- stderr
+usage: qm new TITLE [--project P] [--branch B] [--session ID] [--description TEXT] [--pf-mode MODE]
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "new" "Target"
+exit 1
+--- stderr
+qm: work item 'target' already exists
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "note"
+exit 1
+--- stderr
+usage: qm note SLUG [--kind open|decision|history] TEXT
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "note" "target"
+exit 1
+--- stderr
+usage: qm note SLUG [--kind open|decision|history] TEXT
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "note" "ghost" "text"
+exit 1
+--- stderr
+qm: no work item 'ghost'
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "note" "target" "text" "--kind" "bogus"
+exit 1
+--- stderr
+qm: unknown note kind 'bogus' (open | decision | history)
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "retag"
+exit 1
+--- stderr
+usage: qm retag SLUG POSITION KIND (open | decision | history) — POSITION is the number qm show prints
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "retag" "target" "1"
+exit 1
+--- stderr
+usage: qm retag SLUG POSITION KIND (open | decision | history) — POSITION is the number qm show prints
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "retag" "target" "1" "open"
+exit 1
+--- stderr
+qm: note #1 does not exist (0 note(s))
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "retag" "target" "abc" "open"
+exit 1
+--- stderr
+qm: note #0 does not exist (0 note(s))
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "retag" "ghost" "1" "open"
+exit 1
+--- stderr
+qm: no work item 'ghost'
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "state"
+exit 1
+--- stderr
+usage: qm state SLUG (in_progress | fridge | resolved)
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "state" "target"
+exit 1
+--- stderr
+usage: qm state SLUG (in_progress | fridge | resolved)
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "state" "ghost" "fridge"
+exit 1
+--- stderr
+qm: no work item 'ghost'
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "state" "target" "bogus"
+exit 1
+--- stderr
+qm: state must be one of: in_progress, fridge, resolved
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "link-branch"
+exit 1
+--- stderr
+usage: qm link-branch SLUG [BRANCH] [--temp]  (BRANCH defaults to the current branch)
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "link-branch" "target"
+exit 1
+--- stderr
+usage: qm link-branch SLUG [BRANCH] [--temp]  (BRANCH defaults to the current branch)
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "link-branch" "ghost" "b"
+exit 1
+--- stderr
+qm: no work item 'ghost'
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "unlink-branch"
+exit 1
+--- stderr
+usage: qm unlink-branch SLUG BRANCH
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "unlink-branch" "target" "nope"
+exit 1
+--- stderr
+qm: 'target' has no branch 'nope'
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "unlink-branch" "ghost" "b"
+exit 1
+--- stderr
+qm: no work item 'ghost'
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "board"
+exit 1
+--- stderr
+usage: qm board SLUG [URL [--answers-dir DIR] | clear]
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "board" "ghost"
+exit 1
+--- stderr
+qm: no work item 'ghost'
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "board" "target" "--answers-dir" "/x"
+exit 1
+--- stderr
+qm: --answers-dir needs a board URL
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "board" "target"
+exit 1
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "move"
+exit 1
+--- stderr
+usage: qm move SLUG PROJECT
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "move" "target"
+exit 1
+--- stderr
+usage: qm move SLUG PROJECT
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "move" "ghost" "p"
+exit 1
+--- stderr
+qm: no work item 'ghost'
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "retitle"
+exit 1
+--- stderr
+usage: qm retitle SLUG NEW_TITLE  (the slug never changes)
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "retitle" "target"
+exit 1
+--- stderr
+usage: qm retitle SLUG NEW_TITLE  (the slug never changes)
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "retitle" "ghost" "t"
+exit 1
+--- stderr
+qm: no work item 'ghost'
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "describe"
+exit 1
+--- stderr
+usage: qm describe SLUG TEXT  (or pipe the text on stdin)
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "describe" "target"
+exit 1
+--- stderr
+usage: qm describe SLUG TEXT  (or pipe the text on stdin)
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "describe" "ghost" "text"
+exit 1
+--- stderr
+qm: no work item 'ghost'
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "detach"
+exit 1
+--- stderr
+usage: qm detach SLUG --session SESSION_ID
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "detach" "target"
+exit 1
+--- stderr
+usage: qm detach SLUG --session SESSION_ID
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "detach" "ghost" "--session" "s"
+exit 1
+--- stderr
+qm: no work item 'ghost'
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+
+$ qm "show" "ghost"
+exit 1
+--- stderr
+qm: no work item 'ghost'
+--- target.md
+---
+v: 1
+title: Target
+state: in_progress
+project: No project
+created: 'DATE'
+---
+
+## Description
+
+_TODO_
+
+## Notes
+
+## Snapshots
+

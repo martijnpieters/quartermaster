@@ -1,0 +1,139 @@
+$ qm show-session s-live
+exit 0
+--- stdout
+[1mSession s-live[0m
+tier: live
+cwd: /srv/app
+branch: main · project: demo · work item: -
+started: TS
+
+[1mFirst prompt[0m
+First  real prompt
+--- stderr
+
+$ qm show-session s-resumable
+exit 0
+--- stdout
+[1mSession s-resumable[0m
+tier: resumable
+cwd: ~/proj
+branch: feat/x · project: demo · work item: item
+started: TS
+ended: TS (2m, clear)
+  commit: sha first
+  commit: sha second
+
+[1mFirst prompt[0m
+First  real prompt
+--- stderr
+
+$ qm show-session s-expired
+exit 0
+--- stdout
+[1mSession s-expired[0m
+tier: expired
+cwd: /srv/gone
+branch: - · project: - · work item: -
+started: TS
+ended: TS (-, )
+--- stderr
+
+$ qm show-session s-aside
+exit 0
+--- stdout
+[1mSession s-aside[0m
+tier: resumable
+cwd: /srv/app
+branch: feat/x · project: demo · work item: aside:item
+started: TS
+
+[1mFirst prompt[0m
+line one
+line two — ünï
+--- stderr
+
+$ qm show-session s-loose
+exit 0
+--- stdout
+[1mSession s-loose[0m
+tier: resumable
+cwd: /srv/app
+branch: - · project: - · work item: loose:L1
+started: TS
+
+[1mFirst prompt[0m
+word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word 
+--- stderr
+
+$ qm show-session s-nocwd
+exit 0
+--- stdout
+[1mSession s-nocwd[0m
+tier: resumable
+cwd: ?
+branch: - · project: - · work item: -
+started: TS
+--- stderr
+
+$ qm show-session s-shapes
+exit 0
+--- stdout
+[1mSession s-shapes[0m
+tier: resumable
+cwd: /x/~/y
+branch: - · project: - · work item: -
+started: TS
+
+[1mFirst prompt[0m
+from the array
+--- stderr
+
+$ qm show-session s-empty
+exit 0
+--- stdout
+[1mSession s-empty[0m
+tier: resumable
+cwd: /srv/app
+branch: - · project: - · work item: -
+started: TS
+--- stderr
+
+$ qm show-session s-dismissed
+exit 0
+--- stdout
+[1mSession s-dismissed[0m
+tier: resumable
+cwd: /srv/app
+branch: - · project: - · work item: -
+started: TS
+ended: TS (1h01m, exit)
+
+[1mFirst prompt[0m
+First  real prompt
+--- stderr
+
+$ qm show-session s-restarted
+exit 0
+--- stdout
+[1mSession s-restarted[0m
+tier: live
+cwd: /srv/app2
+branch: - · project: - · work item: -
+started: TS
+
+[1mFirst prompt[0m
+First  real prompt
+--- stderr
+
+$ qm show-session s-unknown
+exit 1
+--- stdout
+--- stderr
+qm: unknown session s-unknown
+
+$ qm show-session 
+exit 1
+--- stdout
+--- stderr
+qm: unknown session 
+

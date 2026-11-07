@@ -1,0 +1,507 @@
+$ qm "link-branch" "legacy" "feat/new"
+exit 0
+--- stdout
+legacy → feat/old, feat/new
+--- legacy.md
+---
+v: 1
+title: Legacy
+state: in_progress
+project: No project
+temp_branches:
+- worktree-a
+- worktree-b
+pf_mode: dev
+created: 'DATE'
+rotations:
+- at: 'TS'
+  from: s0
+  via: wrap
+  carried:
+  - 1
+  - 2
+  decisions: 1
+  open: 0
+snoozed_until: 'DATE'
+branches:
+- feat/old
+- feat/new
+---
+
+## Description
+
+_TODO_
+
+## Notes
+- DATE [weird]: unknown marker
+- DATE [open]:   padded text   
+
+## Snapshots
+
+$ qm "link-branch" "legacy" "worktree-a"
+exit 0
+--- stdout
+legacy → feat/old, feat/new, worktree-a
+--- legacy.md
+---
+v: 1
+title: Legacy
+state: in_progress
+project: No project
+temp_branches:
+- worktree-b
+pf_mode: dev
+created: 'DATE'
+rotations:
+- at: 'TS'
+  from: s0
+  via: wrap
+  carried:
+  - 1
+  - 2
+  decisions: 1
+  open: 0
+snoozed_until: 'DATE'
+branches:
+- feat/old
+- feat/new
+- worktree-a
+---
+
+## Description
+
+_TODO_
+
+## Notes
+- DATE [weird]: unknown marker
+- DATE [open]:   padded text   
+
+## Snapshots
+
+$ qm "link-branch" "legacy" "worktree-c" "--temp"
+exit 0
+--- stdout
+legacy → temp: worktree-b, worktree-c
+--- legacy.md
+---
+v: 1
+title: Legacy
+state: in_progress
+project: No project
+temp_branches:
+- worktree-b
+- worktree-c
+pf_mode: dev
+created: 'DATE'
+rotations:
+- at: 'TS'
+  from: s0
+  via: wrap
+  carried:
+  - 1
+  - 2
+  decisions: 1
+  open: 0
+snoozed_until: 'DATE'
+branches:
+- feat/old
+- feat/new
+- worktree-a
+---
+
+## Description
+
+_TODO_
+
+## Notes
+- DATE [weird]: unknown marker
+- DATE [open]:   padded text   
+
+## Snapshots
+
+$ qm "unlink-branch" "legacy" "feat/old"
+exit 0
+--- stdout
+legacy → feat/new, worktree-a
+--- legacy.md
+---
+v: 1
+title: Legacy
+state: in_progress
+project: No project
+temp_branches:
+- worktree-b
+- worktree-c
+pf_mode: dev
+created: 'DATE'
+rotations:
+- at: 'TS'
+  from: s0
+  via: wrap
+  carried:
+  - 1
+  - 2
+  decisions: 1
+  open: 0
+snoozed_until: 'DATE'
+branches:
+- feat/new
+- worktree-a
+---
+
+## Description
+
+_TODO_
+
+## Notes
+- DATE [weird]: unknown marker
+- DATE [open]:   padded text   
+
+## Snapshots
+
+$ qm "unlink-branch" "legacy" "feat/new"
+exit 0
+--- stdout
+legacy → worktree-a
+--- legacy.md
+---
+v: 1
+title: Legacy
+state: in_progress
+project: No project
+temp_branches:
+- worktree-b
+- worktree-c
+pf_mode: dev
+created: 'DATE'
+rotations:
+- at: 'TS'
+  from: s0
+  via: wrap
+  carried:
+  - 1
+  - 2
+  decisions: 1
+  open: 0
+snoozed_until: 'DATE'
+branches:
+- worktree-a
+---
+
+## Description
+
+_TODO_
+
+## Notes
+- DATE [weird]: unknown marker
+- DATE [open]:   padded text   
+
+## Snapshots
+
+$ qm "unlink-branch" "legacy" "worktree-a"
+exit 0
+--- stdout
+legacy → (no branches)
+--- legacy.md
+---
+v: 1
+title: Legacy
+state: in_progress
+project: No project
+temp_branches:
+- worktree-b
+- worktree-c
+pf_mode: dev
+created: 'DATE'
+rotations:
+- at: 'TS'
+  from: s0
+  via: wrap
+  carried:
+  - 1
+  - 2
+  decisions: 1
+  open: 0
+snoozed_until: 'DATE'
+branches: []
+---
+
+## Description
+
+_TODO_
+
+## Notes
+- DATE [weird]: unknown marker
+- DATE [open]:   padded text   
+
+## Snapshots
+
+$ qm "retag" "legacy" "1" "history"
+exit 0
+--- stdout
+[36m#1[0m [90m[history][0m DATE: unknown marker
+--- legacy.md
+---
+v: 1
+title: Legacy
+state: in_progress
+project: No project
+temp_branches:
+- worktree-b
+- worktree-c
+pf_mode: dev
+created: 'DATE'
+rotations:
+- at: 'TS'
+  from: s0
+  via: wrap
+  carried:
+  - 1
+  - 2
+  decisions: 1
+  open: 0
+snoozed_until: 'DATE'
+branches: []
+---
+
+## Description
+
+_TODO_
+
+## Notes
+- DATE [history]: unknown marker
+- DATE [open]: padded text
+
+## Snapshots
+
+$ qm "note" "legacy" "appended after odd notes"
+exit 0
+--- stdout
+[36m#3[0m [90m[decision][0m DATE: appended after odd notes
+--- legacy.md
+---
+v: 1
+title: Legacy
+state: in_progress
+project: No project
+temp_branches:
+- worktree-b
+- worktree-c
+pf_mode: dev
+created: 'DATE'
+rotations:
+- at: 'TS'
+  from: s0
+  via: wrap
+  carried:
+  - 1
+  - 2
+  decisions: 1
+  open: 0
+snoozed_until: 'DATE'
+branches: []
+---
+
+## Description
+
+_TODO_
+
+## Notes
+- DATE [history]: unknown marker
+- DATE [open]: padded text
+- DATE: appended after odd notes
+
+## Snapshots
+
+$ qm "state" "legacy" "fridge"
+exit 0
+--- legacy.md
+---
+v: 1
+title: Legacy
+state: fridge
+project: No project
+temp_branches:
+- worktree-b
+- worktree-c
+pf_mode: dev
+created: 'DATE'
+rotations:
+- at: 'TS'
+  from: s0
+  via: wrap
+  carried:
+  - 1
+  - 2
+  decisions: 1
+  open: 0
+snoozed_until: 'DATE'
+branches: []
+---
+
+## Description
+
+_TODO_
+
+## Notes
+- DATE [history]: unknown marker
+- DATE [open]: padded text
+- DATE: appended after odd notes
+
+## Snapshots
+
+$ qm "move" "legacy" "demo"
+exit 0
+--- stdout
+legacy → demo
+--- legacy.md
+---
+v: 1
+title: Legacy
+state: fridge
+project: demo
+temp_branches:
+- worktree-b
+- worktree-c
+pf_mode: dev
+created: 'DATE'
+rotations:
+- at: 'TS'
+  from: s0
+  via: wrap
+  carried:
+  - 1
+  - 2
+  decisions: 1
+  open: 0
+snoozed_until: 'DATE'
+branches: []
+---
+
+## Description
+
+_TODO_
+
+## Notes
+- DATE [history]: unknown marker
+- DATE [open]: padded text
+- DATE: appended after odd notes
+
+## Snapshots
+
+$ qm "board" "legacy" "https://example.test/l"
+exit 0
+--- stdout
+legacy → https://example.test/l
+--- legacy.md
+---
+v: 1
+title: Legacy
+state: fridge
+project: demo
+temp_branches:
+- worktree-b
+- worktree-c
+pf_mode: dev
+created: 'DATE'
+rotations:
+- at: 'TS'
+  from: s0
+  via: wrap
+  carried:
+  - 1
+  - 2
+  decisions: 1
+  open: 0
+snoozed_until: 'DATE'
+branches: []
+board: https://example.test/l
+---
+
+## Description
+
+_TODO_
+
+## Notes
+- DATE [history]: unknown marker
+- DATE [open]: padded text
+- DATE: appended after odd notes
+
+## Snapshots
+
+$ qm "board" "legacy" "clear"
+exit 0
+--- stdout
+legacy → (no status board)
+--- legacy.md
+---
+v: 1
+title: Legacy
+state: fridge
+project: demo
+temp_branches:
+- worktree-b
+- worktree-c
+pf_mode: dev
+created: 'DATE'
+rotations:
+- at: 'TS'
+  from: s0
+  via: wrap
+  carried:
+  - 1
+  - 2
+  decisions: 1
+  open: 0
+snoozed_until: 'DATE'
+branches: []
+---
+
+## Description
+
+_TODO_
+
+## Notes
+- DATE [history]: unknown marker
+- DATE [open]: padded text
+- DATE: appended after odd notes
+
+## Snapshots
+
+$ qm "describe" "legacy" "now described"
+exit 0
+--- legacy.md
+---
+v: 1
+title: Legacy
+state: fridge
+project: demo
+temp_branches:
+- worktree-b
+- worktree-c
+pf_mode: dev
+created: 'DATE'
+rotations:
+- at: 'TS'
+  from: s0
+  via: wrap
+  carried:
+  - 1
+  - 2
+  decisions: 1
+  open: 0
+snoozed_until: 'DATE'
+branches: []
+---
+
+## Description
+
+now described
+
+## Notes
+- DATE [history]: unknown marker
+- DATE [open]: padded text
+- DATE: appended after odd notes
+
+## Snapshots
+
